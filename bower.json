@@ -1,0 +1,32 @@
+{
+  "name": "document-driven-ui-test",
+  "description": "This library is design for support use markdown syntax to write document contain test plan and automatic generate the automation UI test for a web application, current not support Flash site.",
+  "main": "main.js",
+  "authors": [
+    "Erxin",
+    "Shang (Edwin)"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "document",
+    "test",
+    "markdown"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.0",
+    "requirejs-plugins": "^1.0.3",
+    "showdown": "^1.4.3",
+    "log4js": "^1.0.0"
+  },
+  "devDependencies": {
+    "sinon-browser-only": "^1.17.1"
+  }
+}

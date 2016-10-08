@@ -1,0 +1,29 @@
+# localization file format
+https://en.wikipedia.org/wiki/.properties
+
+# npm modules
+- markdown converter
+https://github.com/evilstreak/markdown-js
+https://github.com/showdownjs/showdown
+
+- js dom parser A JavaScript implementation of the DOM and HTML standards
+$ npm install jsdom
+
+- gulp
+http://gulpjs.com
+
+- test frameworks
+http://sinonjs.org/
+
+- eslint javascript code verification tool
+https://www.nczonline.net/blog/2013/07/16/introducing-eslint/
+https://github.com/eslint/eslint
+
+- log4js
+https://www.npmjs.com/package/log4js
+
+
+# document reference
+- markdown implementation
+https://www.w3.org/community/markdown/wiki/MarkdownImplementations
+

@@ -1,0 +1,25 @@
+{
+  "markdownParser":{
+    "omitExtraWLInCodeBlocks":false,
+    "noHeaderId":false,
+    "prefixHeaderId":false,
+    "parseImgDimensions":true,
+    "headerLevelStart":1,
+    "simplifiedAutoLink":false,
+    "literalMidWordUnderscores":true,
+    "strikethrough":true,
+    "tables":true,
+    "tablesHeaderId":true,
+    "ghCodeBlocks":true,
+    "tasklists":true,
+    "smoothLivePreview":false,
+    "smartIndentationFix":false
+  },
+  "agents":[
+    {
+      "type":"seleniumAgent",
+      "isEnable":true
+    }
+  ],
+  "logLevel":"debug"
+}

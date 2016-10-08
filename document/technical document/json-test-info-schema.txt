@@ -1,0 +1,18 @@
+var dataSheet = {
+    steps:[
+        {type:"type",     args:{descriptor:{xpath:"", css:"#btn", js:""}, input:"Hello"}, before:(stepIndex)=>{}, after:(result)=>{}},
+        {type:"navigate", args:{descriptor:{},                            to:"to-uri"}, before:(stepIndex)=>{}, after:(result)=>{}},
+        {type:"for",      args:{condition:"expression", init:"expression", increment:"expression", steps:[
+            {type:"wait",       args:{wait:10}},
+            {type:"activeTab",  args:{descriptor:{xpath:"", css:"#btn", js:""},  index:3, wait:0}},
+            {type:"for",        args:{condition:"expression", init:"expression", increment:"expression", steps:[
+                //...
+            ]}}
+        ]}},
+        {type:"if",       args:{condition:"expression", steps:[
+            {type:"eval", args:{code:"..."}},
+            {type:"evalOnObject", args:{descriptor:{xpath:"..."}, code:"..."}}
+        ]}},
+        //...may be more
+    ],
+};
