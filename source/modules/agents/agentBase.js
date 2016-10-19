@@ -12,8 +12,8 @@ class AgentBase extends ObjectBase {
                                             initial  : 'idle',
                                             events   : [
                                                 {name: 'start', from: 'idle', to: 'ready'},
-                                                {name: 'executeStep', from: 'ready', to: 'running'},
-                                                {name: 'completeStep', from: 'running', to: 'ready'},
+                                                {name: 'execute', from: 'ready', to: 'running'},
+                                                {name: 'done', from: 'running', to: 'ready'},
                                                 {
                                                     name: 'stop',
                                                     from: ['ready', 'running', 'paused', 'error'],
@@ -62,147 +62,156 @@ class AgentBase extends ObjectBase {
                                                 onleaveerror   : this._onleaveError,
                                                 onentererror   : this._onenterError,
                                                 onaftererror   : this._onafterError,
-                                            }
+                                            },
+            error:()=>{
+
+            }
                                         });
+        this._communicators = [];
     }
 
+    static get topics(){
+        return CONST.events.agent;
+    }
+
+    /*****************************FSM event handlers start**************************************/
     _onbeforeIdle(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeIdle, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeIdle, fromState, toState, ...args);
         this.onbeforeIdle(event, fromState, toState, ...args);
     }
 
     _onleaveIdle(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveIdle, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveIdle, fromState, toState, ...args);
         this.onleaveIdle(event, fromState, toState, ...args);
     }
 
     _onenterIdle(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterIdle, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterIdle, fromState, toState, ...args);
         this.onenterIdle(event, fromState, toState, ...args);
     }
 
     _onafterIdle(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterIdle, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterIdle, fromState, toState, ...args);
         this.onafterIdle(event, fromState, toState, ...args);
     }
 
     _onbeforeReady(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeReady, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeReady, fromState, toState, ...args);
         this.onbeforeReady(event, fromState, toState, ...args);
     }
 
     _onleaveReady(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveReady, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveReady, fromState, toState, ...args);
         this.onleaveReady(event, fromState, toState, ...args);
     }
 
     _onenterReady(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterReady, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterReady, fromState, toState, ...args);
         this.onenterReady(event, fromState, toState, ...args);
     }
 
     _onafterReady(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterReady, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterReady, fromState, toState, ...args);
         this.onafterReady(event, fromState, toState, ...args);
     }
 
     _onbeforeRunning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeRunning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeRunning, fromState, toState, ...args);
         this.onbeforeRunning(event, fromState, toState, ...args);
     }
 
     _onleaveRunning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveRunning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveRunning, fromState, toState, ...args);
         this.onleaveRunning(event, fromState, toState, ...args);
     }
 
     _onenterRunning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterRunning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterRunning, fromState, toState, ...args);
         this.onenterRunning(event, fromState, toState, ...args);
     }
 
     _onafterRunning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterRunning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterRunning, fromState, toState, ...args);
         this.onafterRunning(event, fromState, toState, ...args);
     }
 
     _onbeforePaused(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforePaused, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforePaused, fromState, toState, ...args);
         this.onbeforePaused(event, fromState, toState, ...args);
     }
 
     _onleavePaused(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleavePaused, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleavePaused, fromState, toState, ...args);
         this.onleavePaused(event, fromState, toState, ...args);
     }
 
     _onenterPaused(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterPaused, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterPaused, fromState, toState, ...args);
         this.onenterPaused(event, fromState, toState, ...args);
     }
 
     _onafterPaused(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterPaused, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterPaused, fromState, toState, ...args);
         this.onafterPaused(event, fromState, toState, ...args);
     }
 
     _onbeforeStopped(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeStopped, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeStopped, fromState, toState, ...args);
         this.onbeforeStopped(event, fromState, toState, ...args);
     }
 
     _onleaveStopped(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveStopped, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveStopped, fromState, toState, ...args);
         this.onleaveStopped(event, fromState, toState, ...args);
     }
 
     _onenterStopped(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterStopped, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterStopped, fromState, toState, ...args);
         this.onenterStopped(event, fromState, toState, ...args);
     }
 
     _onafterStopped(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterStopped, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterStopped, fromState, toState, ...args);
         this.onafterStopped(event, fromState, toState, ...args);
     }
 
     _onbeforeWarning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeWarning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeWarning, fromState, toState, ...args);
         this.onbeforeWarning(event, fromState, toState, ...args);
     }
 
     _onleaveWarning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveWarning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveWarning, fromState, toState, ...args);
         this.onleaveWarning(event, fromState, toState, ...args);
     }
 
     _onenterWarning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterWarning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterWarning, fromState, toState, ...args);
         this.onenterWarning(event, fromState, toState, ...args);
     }
 
     _onafterWarning(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterWarning, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterWarning, fromState, toState, ...args);
         this.onafterWarning(event, fromState, toState, ...args);
     }
 
     _onbeforeError(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onbeforeError, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onbeforeError, fromState, toState, ...args);
         this.onbeforeError(event, fromState, toState, ...args);
     }
 
     _onleaveError(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onleaveError, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onleaveError, fromState, toState, ...args);
         this.onleaveError(event, fromState, toState, ...args);
     }
 
     _onenterError(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onenterError, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onenterError, fromState, toState, ...args);
         this.onenterError(event, fromState, toState, ...args);
     }
 
     _onafterError(event, fromState, toState, ...args) {
-        this.publishUpChain(CONST.topics.agent.onafterError, fromState, toState, ...args);
+        this.publishUpChain(CONST.events.agent.onafterError, fromState, toState, ...args);
         this.onafterError(event, fromState, toState, ...args);
     }
 
@@ -261,6 +270,48 @@ class AgentBase extends ObjectBase {
     onenterError(event, fromState, toState, ...args) {}
 
     onafterError(event, fromState, toState, ...args) {}
+    /*****************************FSM event handlers end***************************************/
+
+    addCommunicator(communicator) {
+        let cmdTopics = CONST.commands.agent;
+        _.forEach(cmdTopics, (cmdTopic)=> {
+            communicator.subscribe(cmdTopic, (cmdTopic, ...args)=> {
+                let fsm = this._fsm;
+                switch (cmdTopic) {
+                    case cmdTopics.start:
+                        fsm.start(...args);
+                        break;
+                    case cmdTopics.stop:
+                        fsm.stop(...args);
+                        break;
+                    case cmdTopics.reset:
+                        fsm.reset(...args);
+                        break;
+                    case cmdTopics.pause:
+                        fsm.pause(...args);
+                        break;
+                    case cmdTopics.continue:
+                        fsm.continue(...args);
+                        break;
+                    case cmdTopics.execute:
+                        fsm.execute(...args);
+                        break;
+                    default:
+                        fsm.warn(cmdTopic, ...args);
+                }
+            }, this);
+        });
+        _.forEach(CONST.events.agent, (event)=>{
+            this.subscribe(event, function(...args){
+                communicator.send(event, ...args);
+            });
+        });
+        this._communicators.push(communicator);
+    }
+
+    removeCommunicator(communicator) {
+        this._communicators.delete(communicator);
+    }
 }
 
 exports.AgentBase = AgentBase;

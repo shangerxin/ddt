@@ -1,8 +1,8 @@
 /**
  * Created by shange on 10/6/2016.
  */
-let {ObjectBase} = require("./objectBase");
-let {SubscriberTree} = require("../libs/subscriberTree");
+var {ObjectBase} = require("./objectBase");
+var {SubscriberTree} = require("../libs/subscriberTree");
 
 class Observable extends ObjectBase{
     constructor(){
@@ -39,7 +39,7 @@ class Observable extends ObjectBase{
         for(let subscriber of this._subscribers.walkAlongPath(topic)){
             let oneTimeHandlers = [];
             subscriber.handlers.forEach((handler)=>{
-                handler.fn.apply(handler.context, args);
+                handler.fn.call(handler.context, topic, ...args);
                 if(handler.isOneTime){
                     oneTimeHandlers.push(handler);
                 }
@@ -59,7 +59,7 @@ class Observable extends ObjectBase{
         for(let subscriber of this._subscribers.walkDownPath(topic)){
             let oneTimeHandlers = [];
             subscriber.handlers.forEach((handler)=>{
-                handler.fn.apply(handler.context, args);
+                handler.fn.call(handler.context, topic, ...args);
                 if(handler.isOneTime){
                     oneTimeHandlers.push(handler);
                 }
@@ -79,7 +79,7 @@ class Observable extends ObjectBase{
         let subscriber = this._subscribers.find(topic);
         let oneTimeHandlers = [];
         subscriber.handlers.forEach((handler)=>{
-            handler.fn.apply(handler.context, args);
+            handler.fn.call(handler.context, topic, ...args);
             if(handler.isOneTime){
                 oneTimeHandlers.push(handler);
             }

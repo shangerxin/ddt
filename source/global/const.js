@@ -26,7 +26,7 @@ var CONST = {
             error:"error",
         }
     },
-    topics   : {
+    events: {
         engine: {
             onbeforeIdle:"engine/onbeforeIdle",
             onleaveIdle:"engine/onleaveIdle",
@@ -98,6 +98,26 @@ var CONST = {
             onleaveError:"agent/onleaveError",
             onenterError:"agent/onenterError",
             onafterError:"agent/onafterError",
+        }
+    },
+    commands:{
+        engine:{
+            start:"engine/start",
+            replay:"engine/replay",
+            record:"engine/record",
+            identify:"engine/identify",
+            continue:"engine/continue",
+            reset:"engine/reset",
+            stop:"engine/stop",
+            pause:"engine/pause"
+        },
+        agent:{
+            start:"agent/start",
+            execute:"agent/execute",
+            pause:"agent/pause",
+            continue:"agent/continue",
+            reset:"agent/reset",
+            stop:"agent/stop",
         }
     }
 };

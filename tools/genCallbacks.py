@@ -1,16 +1,16 @@
 >>> def genPrivateCallbacks(header, events):
 ... 	for e in events:
 ... 		print(("_onbefore{event}(event, fromState, toState, ...args){{" +\
-...     	      "this.publishUpChain(CONST.topics.{header}.onbefore{event}, fromState, toState, ...args);" +\
+...     	      "this.publishUpChain(CONST.events.{header}.onbefore{event}, fromState, toState, ...args);" +\
 ...     	      "this.onbefore{event}(event, fromState, toState, ...args);}}").format(event=e, header=header))
 ... 		print(("_onleave{event}(event, fromState, toState, ...args){{" +\
-...     	      "this.publishUpChain(CONST.topics.{header}.onleave{event}, fromState, toState, ...args);" +\
+...     	      "this.publishUpChain(CONST.events.{header}.onleave{event}, fromState, toState, ...args);" +\
 ...     	      "this.onleave{event}(event, fromState, toState, ...args);}}").format(event=e, header=header))
 ... 		print(("_onenter{event}(event, fromState, toState, ...args){{" +\
-...     	      "this.publishUpChain(CONST.topics.{header}.onenter{event}, fromState, toState, ...args);" +\
+...     	      "this.publishUpChain(CONST.events.{header}.onenter{event}, fromState, toState, ...args);" +\
 ...     	      "this.onenter{event}(event, fromState, toState, ...args);}}").format(event=e, header=header))
 ... 		print(("_onafter{event}(event, fromState, toState, ...args){{" +\
-...     	      "this.publishUpChain(CONST.topics.{header}.onafter{event}, fromState, toState, ...args);" +\
+...     	      "this.publishUpChain(CONST.events.{header}.onafter{event}, fromState, toState, ...args);" +\
 ...     	      "this.onafter{event}(event, fromState, toState, ...args);}}").format(event=e, header=header))
 ...
 >>> genPrivateCallbacks('agent', ['Idle', 'Ready', 'Running', 'Paused', 'Stopped', 'Warning', 'Error'])

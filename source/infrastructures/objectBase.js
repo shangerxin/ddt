@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/4/2016.
  */
-let {logger} = require("../libs/logger");
+var {logger} = require("../libs/logger");
 
 class ObjectBase{
     /*
