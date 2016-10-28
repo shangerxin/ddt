@@ -10,7 +10,7 @@ var {CONST}              = require(`${sourcePath}/global/const`);
 
 describe("test module/engine", ()=> {
     let engine;
-    let events   = CONST.events;
+    let events   = CONST.topics.engine.events;
     let commands = CONST.commands;
 
     beforeEach(()=> {
@@ -26,9 +26,10 @@ describe("test module/engine", ()=> {
         let bfr = sinon.spy();
 
         engine.addCommunicator(cb);
-        engine.subscribe(events.engine.onbeforeReady, bfr);
+        engine.subscribe(events.onbeforeStart, bfr);
         cb.publish(commands.engine.start);
 
+        expect(engine.state).to.be.equal('ready');
         expect(bfr.called).to.be.true;
     });
 });

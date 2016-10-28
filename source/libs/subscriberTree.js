@@ -45,7 +45,7 @@ Node.prototype = {
             return false;
         }
         else {
-            throw new TypeError("Argument error, only accept function or Handler instance!");
+            throw new TypeError("Argument error, only accept function instance!");
         }
     }
 };
@@ -91,8 +91,13 @@ SubscriberTree.prototype = {
         var curNode = this.root;
         for (let topic of _getTopics(topicPath)) {
             let child = curNode.get(topic);
-            yield child;
-            curNode = child;
+            if(child){
+                yield child;
+                curNode = child;
+            }
+            else{
+                break;
+            }
         }
     },
 
