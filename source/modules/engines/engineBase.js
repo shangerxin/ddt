@@ -401,12 +401,12 @@ class EngineBase extends Observable {
         });
         _.forEach(CONST.topics.engine.events, (event)=> {
             $this.subscribe(event, function (...args) {
-                communicator.request(event, ...args);
+                communicator.send(event, ...args);
             });
         });
         _.forEach(CONST.topics.engine.states, (state)=> {
             $this.subscribe(state, function (...args) {
-                communicator.request(state, ...args);
+                communicator.send(state, ...args);
             });
         });
         $this._communicators.push(communicator);

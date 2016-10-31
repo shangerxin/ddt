@@ -1,11 +1,12 @@
 /**
  * Created by shange on 9/7/2016.
  */
-let {ObjectBase}   = require("../../infrastructures/objectBase");
+let {Observable}   = require("../../infrastructures/observable");
 let {StateMachine} = require("../../libs/state-machine");
 let {CONST}        = require("../../global/const");
+let _              = require("lodash");
 
-class AgentBase extends ObjectBase {
+class AgentBase extends Observable {
     constructor() {
         super();
         this._fsm           = StateMachine.create({
@@ -340,12 +341,12 @@ class AgentBase extends ObjectBase {
         });
         _.forEach(CONST.topics.agent.events, (event)=> {
             this.subscribe(event, function (...args) {
-                communicator.request(event, ...args);
+                communicator.send(event, ...args);
             });
         });
         _.forEach(CONST.topics.agent.states, (state)=> {
             this.subscribe(state, function (...args) {
-                communicator.request(state, ...args);
+                communicator.send(state, ...args);
             });
         });
         this._communicators.push(communicator);

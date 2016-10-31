@@ -13,9 +13,9 @@ class CommunicatorBase extends Observable{
     }
 
     /*
-     * The request method should always return a promise
+     * The send method should always return a promise
      */
-    request(...args){
+    send(...args){
     }
 
     get isReady(){
