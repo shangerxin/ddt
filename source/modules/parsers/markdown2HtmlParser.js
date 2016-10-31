@@ -9,6 +9,7 @@ class MarkdownToHtmlParser extends ParserBase{
     constructor(){
         super();
         this._converter = new Converter();
+        this._htmlDocument;
     }
 
     get options(){
@@ -21,8 +22,17 @@ class MarkdownToHtmlParser extends ParserBase{
         });
     }
 
+    get document(){
+        return this._htmlDocument;
+    }
+
     parse(markdown){
-        return this._converter.makeHtml(markdown);
+        this._htmlDocument = this._converter.makeHtml(markdown);
+        return this._htmlDocument;
+    }
+
+    generateHtmlDocument(path){
+
     }
 }
 

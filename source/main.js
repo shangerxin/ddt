@@ -2,20 +2,32 @@
  * Created by shange on 10/7/2016.
  */
 
-var Engine                 = require("./modules/engines/engine").Engine;
-var DirectCommunicator     = require("./modules/communicators/directCommunicator").DirectCommunicator;
-var SeleniumAgent          = require("./modules/agents/seleniumAgent").SeleniumAgent;
-var CONST                  = require("./global/const").CONST;
-var HtmlToTestSchemaParser = require("./modules/parsers/html2TestSchemaParser").HtmlToTestSchemaParser;
-var Markdown2HtmlParser    = require("./modules/parsers/markdown2HtmlParser").MarkdownToHtmlParser;
+let Engine                 = require("./modules/engines/engine").Engine;
+let DirectCommunicator     = require("./modules/communicators/directCommunicator").DirectCommunicator;
+let SeleniumAgent          = require("./modules/agents/seleniumAgent").SeleniumAgent;
+let CONST                  = require("./global/const").CONST;
+let HtmlToTestSchemaParser = require("./modules/parsers/html2TestSchemaParser").HtmlToTestSchemaParser;
+let Markdown2HtmlParser    = require("./modules/parsers/markdown2HtmlParser").MarkdownToHtmlParser;
+let TestObjectService = require("./services/testObjectService").TestObjectService;
+let fs = require("fs");
 
 function main() {
-    var engine       = new Engine();
-    var agent        = new SeleniumAgent();
-    var communicator = new DirectCommunicator();
-    var commands     = CONST.commands.engine;
-    var steps        = {};
-    var testObjects;
+    let engine       = new Engine();
+    let agent        = new SeleniumAgent();
+    let communicator = new DirectCommunicator();
+    let commands     = CONST.commands.engine;
+    let testObjectService = new TestObjectService();
+
+    let testObjects  = testObjectService.getTestObjects("google.com");
+    let steps;
+
+    let markdownContent = fs.readFileSync("E:\\Notes\\InnovationPresentationForAvi\\ddt-demo-markdown.txt", 'utf8');
+    let md2htmlParser = new Markdown2HtmlParser();
+    let testDocument = md2htmlParser.parse(markdownContent);
+    fs.writeFileSync("E:\\Notes\\InnovationPresentationForAvi\\ddt-demo-markdown.html", testDocument);
+
+    let html2TestSchemaParser = new HtmlToTestSchemaParser();
+    steps = html2TestSchemaParser.parse(testDocument);
 
     engine.addCommunicator(communicator);
     agent.addCommunicator(communicator);

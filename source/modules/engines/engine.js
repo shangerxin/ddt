@@ -2,17 +2,22 @@
  * Created by shange on 10/7/2016.
  */
 let {EngineBase} = require("./engineBase");
+let {CONST}= require("../../global/const");
 
 class Engine extends EngineBase {
     constructor() {
         super();
     }
 
-    onbeforeStart(event, fromState, toState, ...args) {}
+    onbeforeStart(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterStart(event, fromState, toState, ...args) {}
 
-    onbeforeReplay(event, fromState, toState, ...args) {}
+    onbeforeReplay(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterReplay(event, fromState, toState, ...args) {}
 
@@ -54,11 +59,19 @@ class Engine extends EngineBase {
 
     onleaveReady(event, fromState, toState, ...args) {}
 
-    onenterReady(event, fromState, toState, ...args) {}
+    onenterReady(event, fromState, toState, ...args) {
+        this._communicators.forEach((communicator)=>{
+            communicator.publishUpChain(CONST.commands.agent.start, ...args);
+        });
+    }
 
     onleaveReplaying(event, fromState, toState, ...args) {}
 
-    onenterReplaying(event, fromState, toState, ...args) {}
+    onenterReplaying(event, fromState, toState, ...args) {
+        this._communicators.forEach((communicator)=>{
+            communicator.publishUpChain(CONST.commands.agent.execute, ...args);
+        });
+    }
 
     onleaveRecording(event, fromState, toState, ...args) {}
 

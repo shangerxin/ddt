@@ -86,7 +86,7 @@ class AgentBase extends Observable {
     /*****************************FSM event handlers start**************************************/
     _onbeforeStart(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeStart, fromState, toState, ...args);
-        this.onbeforeStart.call(this, event, fromState, toState, ...args);
+        return this.onbeforeStart.call(this, event, fromState, toState, ...args);
     }
 
     _onafterStart(event, fromState, toState, ...args) {
@@ -96,7 +96,7 @@ class AgentBase extends Observable {
 
     _onbeforeExecute(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeExecute, fromState, toState, ...args);
-        this.onbeforeExecute.call(this, event, fromState, toState, ...args);
+        return this.onbeforeExecute.call(this, event, fromState, toState, ...args);
     }
 
     _onafterExecute(event, fromState, toState, ...args) {
@@ -244,11 +244,15 @@ class AgentBase extends Observable {
         this.onenterError.call(this, event, fromState, toState, ...args);
     }
 
-    onbeforeStart(event, fromState, toState, ...args) {}
+    onbeforeStart(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterStart(event, fromState, toState, ...args) {}
 
-    onbeforeExecute(event, fromState, toState, ...args) {}
+    onbeforeExecute(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterExecute(event, fromState, toState, ...args) {}
 

@@ -9,7 +9,7 @@ class HtmlToTestSchemaParser extends ParserBase{
         super();
     }
 
-    parse(markdown){
+    parse(html){
 
     }
 }

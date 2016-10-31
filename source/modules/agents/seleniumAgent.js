@@ -2,17 +2,36 @@
  * Created by shange on 9/7/2016.
  */
 let {AgentBase} = require("./agentBase");
+let net = require("net");
+let childprocess = require("child_process");
 
 class SeleniumAgent extends AgentBase {
     constructor() {
         super();
+        //let _server = this._server = net.createServer((socket)=>{
+        //    socket.on('data', (data)=>{
+        //        console.info(`selenium agent received data`, data.toString());
+        //    });
+        //}).on('error', (err)=>{
+        //    console.error(`selenium agent server error`, err);
+        //});
+        //_server.listen(()=>{
+        //    let address = _server.address();
+        //    console.info(`SeleniumAgent server open on `, address);
+        //    childprocess.spawn(`E:\\Project\\document_driven_test\\environments\\node\\node.exe`,
+        //                       ['E:\\Project\\document_driven_test\\source\\modules\\executors\\seleniumExecutor.js', address]);
+        //});
     }
 
-    onbeforeStart(event, fromState, toState, ...args) {}
+    onbeforeStart(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterStart(event, fromState, toState, ...args) {}
 
-    onbeforeExecute(event, fromState, toState, ...args) {}
+    onbeforeExecute(event, fromState, toState, ...args) {
+        return true;
+    }
 
     onafterExecute(event, fromState, toState, ...args) {}
 
@@ -54,7 +73,11 @@ class SeleniumAgent extends AgentBase {
 
     onleaveRunning(event, fromState, toState, ...args) {}
 
-    onenterRunning(event, fromState, toState, ...args) {}
+    onenterRunning(event, fromState, toState, ...args) {
+        childprocess.spawn(`E:\\Project\\document_driven_test\\environments\\node\\node.exe`,
+                               ['E:\\Project\\document_driven_test\\source\\modules\\executors\\seleniumExecutor.js'], {detached
+                           :true});
+    }
 
     onleavePaused(event, fromState, toState, ...args) {}
 
