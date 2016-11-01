@@ -21,10 +21,10 @@ function main() {
     let testObjects  = testObjectService.getTestObjects("google.com");
     let steps;
 
-    let markdownContent = fs.readFileSync("E:\\Notes\\InnovationPresentationForAvi\\ddt-demo-markdown.txt", 'utf8');
+    let markdownContent = fs.readFileSync("E:\\Notes\\InnovationPresentation\\ddt-demo-markdown.txt", 'utf8');
     let md2htmlParser = new Markdown2HtmlParser();
     let testDocument = md2htmlParser.parse(markdownContent);
-    fs.writeFileSync("E:\\Notes\\InnovationPresentationForAvi\\ddt-demo-markdown.html", testDocument);
+    fs.writeFileSync("E:\\Notes\\InnovationPresentation\\ddt-demo-markdown.html", testDocument);
 
     let html2TestSchemaParser = new HtmlToTestSchemaParser();
     steps = html2TestSchemaParser.parse(testDocument);
