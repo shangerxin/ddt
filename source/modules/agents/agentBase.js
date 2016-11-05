@@ -106,7 +106,7 @@ class AgentBase extends Observable {
 
     _onbeforeDone(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeDone, fromState, toState, ...args);
-        this.onbeforeDone.call(this, event, fromState, toState, ...args);
+        return this.onbeforeDone.call(this, event, fromState, toState, ...args);
     }
 
     _onafterDone(event, fromState, toState, ...args) {
@@ -116,7 +116,7 @@ class AgentBase extends Observable {
 
     _onbeforeStop(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeStop, fromState, toState, ...args);
-        this.onbeforeStop.call(this, event, fromState, toState, ...args);
+        return this.onbeforeStop.call(this, event, fromState, toState, ...args);
     }
 
     _onafterStop(event, fromState, toState, ...args) {
@@ -126,7 +126,7 @@ class AgentBase extends Observable {
 
     _onbeforePause(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforePause, fromState, toState, ...args);
-        this.onbeforePause.call(this, event, fromState, toState, ...args);
+        return this.onbeforePause.call(this, event, fromState, toState, ...args);
     }
 
     _onafterPause(event, fromState, toState, ...args) {
@@ -136,7 +136,7 @@ class AgentBase extends Observable {
 
     _onbeforeContinue(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeContinue, fromState, toState, ...args);
-        this.onbeforeContinue.call(this, event, fromState, toState, ...args);
+        return this.onbeforeContinue.call(this, event, fromState, toState, ...args);
     }
 
     _onafterContinue(event, fromState, toState, ...args) {
@@ -146,7 +146,7 @@ class AgentBase extends Observable {
 
     _onbeforeReset(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeReset, fromState, toState, ...args);
-        this.onbeforeReset.call(this, event, fromState, toState, ...args);
+        return this.onbeforeReset.call(this, event, fromState, toState, ...args);
     }
 
     _onafterReset(event, fromState, toState, ...args) {
@@ -156,7 +156,7 @@ class AgentBase extends Observable {
 
     _onbeforeError(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeError, fromState, toState, ...args);
-        this.onbeforeError.call(this, event, fromState, toState, ...args);
+        return this.onbeforeError.call(this, event, fromState, toState, ...args);
     }
 
     _onafterError(event, fromState, toState, ...args) {
@@ -166,7 +166,7 @@ class AgentBase extends Observable {
 
     _onbeforeWarn(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.events.onbeforeWarn, fromState, toState, ...args);
-        this.onbeforeWarn.call(this, event, fromState, toState, ...args);
+        return this.onbeforeWarn.call(this, event, fromState, toState, ...args);
     }
 
     _onafterWarn(event, fromState, toState, ...args) {
@@ -176,7 +176,7 @@ class AgentBase extends Observable {
 
     _onleaveIdle(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveIdle, fromState, toState, ...args);
-        this.onleaveIdle.call(this, event, fromState, toState, ...args);
+        return this.onleaveIdle.call(this, event, fromState, toState, ...args);
     }
 
     _onenterIdle(event, fromState, toState, ...args) {
@@ -186,7 +186,7 @@ class AgentBase extends Observable {
 
     _onleaveReady(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveReady, fromState, toState, ...args);
-        this.onleaveReady.call(this, event, fromState, toState, ...args);
+        return this.onleaveReady.call(this, event, fromState, toState, ...args);
     }
 
     _onenterReady(event, fromState, toState, ...args) {
@@ -196,7 +196,7 @@ class AgentBase extends Observable {
 
     _onleaveRunning(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveRunning, fromState, toState, ...args);
-        this.onleaveRunning.call(this, event, fromState, toState, ...args);
+        return this.onleaveRunning.call(this, event, fromState, toState, ...args);
     }
 
     _onenterRunning(event, fromState, toState, ...args) {
@@ -206,7 +206,7 @@ class AgentBase extends Observable {
 
     _onleavePaused(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleavePaused, fromState, toState, ...args);
-        this.onleavePaused.call(this, event, fromState, toState, ...args);
+        return this.onleavePaused.call(this, event, fromState, toState, ...args);
     }
 
     _onenterPaused(event, fromState, toState, ...args) {
@@ -216,7 +216,7 @@ class AgentBase extends Observable {
 
     _onleaveStopped(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveStopped, fromState, toState, ...args);
-        this.onleaveStopped.call(this, event, fromState, toState, ...args);
+        return this.onleaveStopped.call(this, event, fromState, toState, ...args);
     }
 
     _onenterStopped(event, fromState, toState, ...args) {
@@ -226,7 +226,7 @@ class AgentBase extends Observable {
 
     _onleaveWarning(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveWarning, fromState, toState, ...args);
-        this.onleaveWarning.call(this, event, fromState, toState, ...args);
+        return this.onleaveWarning.call(this, event, fromState, toState, ...args);
     }
 
     _onenterWarning(event, fromState, toState, ...args) {
@@ -236,7 +236,7 @@ class AgentBase extends Observable {
 
     _onleaveError(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.agent.states.onleaveError, fromState, toState, ...args);
-        this.onleaveError.call(this, event, fromState, toState, ...args);
+        return this.onleaveError.call(this, event, fromState, toState, ...args);
     }
 
     _onenterError(event, fromState, toState, ...args) {
@@ -244,71 +244,67 @@ class AgentBase extends Observable {
         this.onenterError.call(this, event, fromState, toState, ...args);
     }
 
-    onbeforeStart(event, fromState, toState, ...args) {
-        return true;
-    }
+    onbeforeStart(event, fromState, toState, ...args) { return true; }
 
     onafterStart(event, fromState, toState, ...args) {}
 
-    onbeforeExecute(event, fromState, toState, ...args) {
-        return true;
-    }
+    onbeforeExecute(event, fromState, toState, ...args) { return true; }
 
     onafterExecute(event, fromState, toState, ...args) {}
 
-    onbeforeDone(event, fromState, toState, ...args) {}
+    onbeforeDone(event, fromState, toState, ...args) { return true; }
 
     onafterDone(event, fromState, toState, ...args) {}
 
-    onbeforeStop(event, fromState, toState, ...args) {}
+    onbeforeStop(event, fromState, toState, ...args) { return true; }
 
     onafterStop(event, fromState, toState, ...args) {}
 
-    onbeforePause(event, fromState, toState, ...args) {}
+    onbeforePause(event, fromState, toState, ...args) { return true; }
 
     onafterPause(event, fromState, toState, ...args) {}
 
-    onbeforeContinue(event, fromState, toState, ...args) {}
+    onbeforeContinue(event, fromState, toState, ...args) { return true; }
 
     onafterContinue(event, fromState, toState, ...args) {}
 
-    onbeforeReset(event, fromState, toState, ...args) {}
+    onbeforeReset(event, fromState, toState, ...args) { return true; }
 
     onafterReset(event, fromState, toState, ...args) {}
 
-    onbeforeError(event, fromState, toState, ...args) {}
+    onbeforeError(event, fromState, toState, ...args) { return true; }
 
     onafterError(event, fromState, toState, ...args) {}
 
-    onbeforeWarn(event, fromState, toState, ...args) {}
+    onbeforeWarn(event, fromState, toState, ...args) { return true; }
 
     onafterWarn(event, fromState, toState, ...args) {}
 
-    onleaveIdle(event, fromState, toState, ...args) {}
+    onleaveIdle(event, fromState, toState, ...args) { return true; }
 
     onenterIdle(event, fromState, toState, ...args) {}
 
-    onleaveReady(event, fromState, toState, ...args) {}
+    onleaveReady(event, fromState, toState, ...args) { return true; }
 
     onenterReady(event, fromState, toState, ...args) {}
 
-    onleaveRunning(event, fromState, toState, ...args) {}
+    onleaveRunning(event, fromState, toState, ...args) { return true; }
 
     onenterRunning(event, fromState, toState, ...args) {}
 
-    onleavePaused(event, fromState, toState, ...args) {}
+    onleavePaused(event, fromState, toState, ...args) { return true; }
 
     onenterPaused(event, fromState, toState, ...args) {}
 
-    onleaveStopped(event, fromState, toState, ...args) {}
+    onleaveStopped(event, fromState, toState, ...args) { return true; }
 
     onenterStopped(event, fromState, toState, ...args) {}
 
-    onleaveWarning(event, fromState, toState, ...args) {}
+    onleaveWarning(event, fromState, toState, ...args) { return true; }
 
     onenterWarning(event, fromState, toState, ...args) {}
 
-    onleaveError(event, fromState, toState, ...args) {}
+    onleaveError(event, fromState, toState, ...args) { return true; }
 
     onenterError(event, fromState, toState, ...args) {}
 

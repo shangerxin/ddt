@@ -27,3 +27,44 @@ https://www.npmjs.com/package/log4js
 - markdown implementation
 https://www.w3.org/community/markdown/wiki/MarkdownImplementations
 
+# Head less browsers
+- wikipedia for headless browser
+https://en.wikipedia.org/wiki/Headless_browser
+
+- internet explorer, trifleJS
+https://github.com/sdesalas/trifleJS, dead?
+
+- python implementation with QT, lite weight browser
+https://scrapy.org/?_ga=1.235951617.141348272.1478154191
+https://scrapy.org/doc/
+https://scrapinghub.com/opensource
+https://github.com/scrapy/scrapy, Scrapy is a fast high-level web crawling and web scraping framework
+https://github.com/scrapinghub/splash, A javascript rendering service
+
+- firefox Gecko, SlimerJS
+https://github.com/laurentj/slimerjs
+
+The goal for a first major stable release 1.0 is to have a full implementation of the API of PhantomJS 1.9.x and 2.1
+
+- safari and chrome, phantomJS
+http://phantomjs.org/quick-start.html
+https://github.com/ariya/phantomjs
+
+replace ghostdriver(webdriver for phantomjs)
+http://casperjs.org/
+casperjs also support SlimerJS
+
+    + proxy, https://github.com/sheebz/phantom-proxy
+
+    + commandline http://phantomjs.org/api/command-line.html
+
+
+
+# Detect supported features for browsers or headless browser environment
+- modernizr
+https://modernizr.com/
+https://github.com/modernizr/modernizr
+
+It’s a collection of superfast tests – or “detects” as we like to call them – which run as your web page loads, then you can use the results to tailor the experience to the user.
+
+# UI less browser testing framework, implement chrome extension API in phantomjs

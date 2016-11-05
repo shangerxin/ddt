@@ -97,7 +97,7 @@ class EngineBase extends Observable {
     /*****************************FSM event handlers start**************************************/
     _onbeforeStart(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeStart, fromState, toState, ...args);
-        this.onbeforeStart.call(this, event, fromState, toState, ...args);
+        return this.onbeforeStart.call(this, event, fromState, toState, ...args);
     }
 
     _onafterStart(event, fromState, toState, ...args) {
@@ -107,7 +107,7 @@ class EngineBase extends Observable {
 
     _onbeforeReplay(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeReplay, fromState, toState, ...args);
-        this.onbeforeReplay.call(this, event, fromState, toState, ...args);
+        return this.onbeforeReplay.call(this, event, fromState, toState, ...args);
     }
 
     _onafterReplay(event, fromState, toState, ...args) {
@@ -117,7 +117,7 @@ class EngineBase extends Observable {
 
     _onbeforeRecord(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeRecord, fromState, toState, ...args);
-        this.onbeforeRecord.call(this, event, fromState, toState, ...args);
+        return this.onbeforeRecord.call(this, event, fromState, toState, ...args);
     }
 
     _onafterRecord(event, fromState, toState, ...args) {
@@ -127,7 +127,7 @@ class EngineBase extends Observable {
 
     _onbeforeIdentify(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeIdentify, fromState, toState, ...args);
-        this.onbeforeIdentify.call(this, event, fromState, toState, ...args);
+        return this.onbeforeIdentify.call(this, event, fromState, toState, ...args);
     }
 
     _onafterIdentify(event, fromState, toState, ...args) {
@@ -137,7 +137,7 @@ class EngineBase extends Observable {
 
     _onbeforeStop(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeStop, fromState, toState, ...args);
-        this.onbeforeStop.call(this, event, fromState, toState, ...args);
+        return this.onbeforeStop.call(this, event, fromState, toState, ...args);
     }
 
     _onafterStop(event, fromState, toState, ...args) {
@@ -147,7 +147,7 @@ class EngineBase extends Observable {
 
     _onbeforePause(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforePause, fromState, toState, ...args);
-        this.onbeforePause.call(this, event, fromState, toState, ...args);
+        return this.onbeforePause.call(this, event, fromState, toState, ...args);
     }
 
     _onafterPause(event, fromState, toState, ...args) {
@@ -157,7 +157,7 @@ class EngineBase extends Observable {
 
     _onbeforeContinue(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeContinue, fromState, toState, ...args);
-        this.onbeforeContinue.call(this, event, fromState, toState, ...args);
+        return this.onbeforeContinue.call(this, event, fromState, toState, ...args);
     }
 
     _onafterContinue(event, fromState, toState, ...args) {
@@ -167,7 +167,7 @@ class EngineBase extends Observable {
 
     _onbeforeWarn(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeWarn, fromState, toState, ...args);
-        this.onbeforeWarn.call(this, event, fromState, toState, ...args);
+        return this.onbeforeWarn.call(this, event, fromState, toState, ...args);
     }
 
     _onafterWarn(event, fromState, toState, ...args) {
@@ -177,7 +177,7 @@ class EngineBase extends Observable {
 
     _onbeforeReset(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeReset, fromState, toState, ...args);
-        this.onbeforeReset.call(this, event, fromState, toState, ...args);
+        return this.onbeforeReset.call(this, event, fromState, toState, ...args);
     }
 
     _onafterReset(event, fromState, toState, ...args) {
@@ -187,7 +187,7 @@ class EngineBase extends Observable {
 
     _onbeforeError(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.events.onbeforeError, fromState, toState, ...args);
-        this.onbeforeError.call(this, event, fromState, toState, ...args);
+        return this.onbeforeError.call(this, event, fromState, toState, ...args);
     }
 
     _onafterError(event, fromState, toState, ...args) {
@@ -197,7 +197,7 @@ class EngineBase extends Observable {
 
     _onleaveIdle(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveIdle, fromState, toState, ...args);
-        this.onleaveIdle.call(this, event, fromState, toState, ...args);
+        return this.onleaveIdle.call(this, event, fromState, toState, ...args);
     }
 
     _onenterIdle(event, fromState, toState, ...args) {
@@ -207,7 +207,7 @@ class EngineBase extends Observable {
 
     _onleaveReady(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveReady, fromState, toState, ...args);
-        this.onleaveReady.call(this, event, fromState, toState, ...args);
+        return this.onleaveReady.call(this, event, fromState, toState, ...args);
     }
 
     _onenterReady(event, fromState, toState, ...args) {
@@ -217,7 +217,7 @@ class EngineBase extends Observable {
 
     _onleaveReplaying(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveReplaying, fromState, toState, ...args);
-        this.onleaveReplaying.call(this, event, fromState, toState, ...args);
+        return this.onleaveReplaying.call(this, event, fromState, toState, ...args);
     }
 
     _onenterReplaying(event, fromState, toState, ...args) {
@@ -227,7 +227,7 @@ class EngineBase extends Observable {
 
     _onleaveRecording(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveRecording, fromState, toState, ...args);
-        this.onleaveRecording.call(this, event, fromState, toState, ...args);
+        return this.onleaveRecording.call(this, event, fromState, toState, ...args);
     }
 
     _onenterRecording(event, fromState, toState, ...args) {
@@ -237,7 +237,7 @@ class EngineBase extends Observable {
 
     _onleaveIdentifying(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveIdentifying, fromState, toState, ...args);
-        this.onleaveIdentifying.call(this, event, fromState, toState, ...args);
+        return this.onleaveIdentifying.call(this, event, fromState, toState, ...args);
     }
 
     _onenterIdentifying(event, fromState, toState, ...args) {
@@ -247,7 +247,7 @@ class EngineBase extends Observable {
 
     _onleavePaused(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleavePaused, fromState, toState, ...args);
-        this.onleavePaused.call(this, event, fromState, toState, ...args);
+        return this.onleavePaused.call(this, event, fromState, toState, ...args);
     }
 
     _onenterPaused(event, fromState, toState, ...args) {
@@ -257,7 +257,7 @@ class EngineBase extends Observable {
 
     _onleaveStopped(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveStopped, fromState, toState, ...args);
-        this.onleaveStopped.call(this, event, fromState, toState, ...args);
+        return this.onleaveStopped.call(this, event, fromState, toState, ...args);
     }
 
     _onenterStopped(event, fromState, toState, ...args) {
@@ -267,7 +267,7 @@ class EngineBase extends Observable {
 
     _onleaveWarning(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveWarning, fromState, toState, ...args);
-        this.onleaveWarning.call(this, event, fromState, toState, ...args);
+        return this.onleaveWarning.call(this, event, fromState, toState, ...args);
     }
 
     _onenterWarning(event, fromState, toState, ...args) {
@@ -277,7 +277,7 @@ class EngineBase extends Observable {
 
     _onleaveError(event, fromState, toState, ...args) {
         this.publishUpChain.call(this, CONST.topics.engine.states.onleaveError, fromState, toState, ...args);
-        this.onleaveError.call(this, event, fromState, toState, ...args);
+        return this.onleaveError.call(this, event, fromState, toState, ...args);
     }
 
     _onenterError(event, fromState, toState, ...args) {
@@ -285,79 +285,79 @@ class EngineBase extends Observable {
         this.onenterError.call(this, event, fromState, toState, ...args);
     }
 
-    onbeforeStart(event, fromState, toState, ...args) {}
+    onbeforeStart(event, fromState, toState, ...args) { return true; }
 
     onafterStart(event, fromState, toState, ...args) {}
 
-    onbeforeReplay(event, fromState, toState, ...args) {}
+    onbeforeReplay(event, fromState, toState, ...args) { return true; }
 
     onafterReplay(event, fromState, toState, ...args) {}
 
-    onbeforeRecord(event, fromState, toState, ...args) {}
+    onbeforeRecord(event, fromState, toState, ...args) { return true; }
 
     onafterRecord(event, fromState, toState, ...args) {}
 
-    onbeforeIdentify(event, fromState, toState, ...args) {}
+    onbeforeIdentify(event, fromState, toState, ...args) { return true; }
 
     onafterIdentify(event, fromState, toState, ...args) {}
 
-    onbeforeStop(event, fromState, toState, ...args) {}
+    onbeforeStop(event, fromState, toState, ...args) { return true; }
 
     onafterStop(event, fromState, toState, ...args) {}
 
-    onbeforePause(event, fromState, toState, ...args) {}
+    onbeforePause(event, fromState, toState, ...args) { return true; }
 
     onafterPause(event, fromState, toState, ...args) {}
 
-    onbeforeContinue(event, fromState, toState, ...args) {}
+    onbeforeContinue(event, fromState, toState, ...args) { return true; }
 
     onafterContinue(event, fromState, toState, ...args) {}
 
-    onbeforeWarn(event, fromState, toState, ...args) {}
+    onbeforeWarn(event, fromState, toState, ...args) { return true; }
 
     onafterWarn(event, fromState, toState, ...args) {}
 
-    onbeforeReset(event, fromState, toState, ...args) {}
+    onbeforeReset(event, fromState, toState, ...args) { return true; }
 
     onafterReset(event, fromState, toState, ...args) {}
 
-    onbeforeError(event, fromState, toState, ...args) {}
+    onbeforeError(event, fromState, toState, ...args) { return true; }
 
     onafterError(event, fromState, toState, ...args) {}
 
-    onleaveIdle(event, fromState, toState, ...args) {}
+    onleaveIdle(event, fromState, toState, ...args) { return true; }
 
     onenterIdle(event, fromState, toState, ...args) {}
 
-    onleaveReady(event, fromState, toState, ...args) {}
+    onleaveReady(event, fromState, toState, ...args) { return true; }
 
     onenterReady(event, fromState, toState, ...args) {}
 
-    onleaveReplaying(event, fromState, toState, ...args) {}
+    onleaveReplaying(event, fromState, toState, ...args) { return true; }
 
     onenterReplaying(event, fromState, toState, ...args) {}
 
-    onleaveRecording(event, fromState, toState, ...args) {}
+    onleaveRecording(event, fromState, toState, ...args) { return true; }
 
     onenterRecording(event, fromState, toState, ...args) {}
 
-    onleaveIdentifying(event, fromState, toState, ...args) {}
+    onleaveIdentifying(event, fromState, toState, ...args) { return true; }
 
     onenterIdentifying(event, fromState, toState, ...args) {}
 
-    onleavePaused(event, fromState, toState, ...args) {}
+    onleavePaused(event, fromState, toState, ...args) { return true; }
 
     onenterPaused(event, fromState, toState, ...args) {}
 
-    onleaveStopped(event, fromState, toState, ...args) {}
+    onleaveStopped(event, fromState, toState, ...args) { return true; }
 
     onenterStopped(event, fromState, toState, ...args) {}
 
-    onleaveWarning(event, fromState, toState, ...args) {}
+    onleaveWarning(event, fromState, toState, ...args) { return true; }
 
     onenterWarning(event, fromState, toState, ...args) {}
 
-    onleaveError(event, fromState, toState, ...args) {}
+    onleaveError(event, fromState, toState, ...args) { return true; }
 
     onenterError(event, fromState, toState, ...args) {}
 

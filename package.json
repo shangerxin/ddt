@@ -16,6 +16,7 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "browserify": "^13.1.0",
+    "casper": "^0.1.1",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-cached": "^1.1.0",
@@ -39,6 +40,7 @@
     "jszip": "^3.1.2",
     "lodash": "^4.15.0",
     "log4js": "^0.6.38",
+    "natural": "^0.4.0",
     "requirejs": "^2.3.2",
     "selenium-webdriver": "^3.0.0-beta-3",
     "showdown": "^1.4.3",

@@ -1,9 +1,8 @@
 /**
  * Created by shange on 10/31/2016.
  */
-var net = require("net");
-var process = require("process");
-var webdriver = require("selenium-webdriver");
+//var net = require("net");
+//var process = require("process");
 
 //var serverPort = process.argv[2];
 //
@@ -18,7 +17,6 @@ var webdriver = require("selenium-webdriver");
 //});
 
 //process.env.PATH += "E:\\Project\\document_driven_test\\environments\\webdrivers";
-
 
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
