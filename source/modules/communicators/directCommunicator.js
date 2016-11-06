@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/30/2016.
  */
-var CommunicatorBase = require("./communicatorBase").CommunicatorBase;
+var CommunicatorBase = require("../../infrastructures/communicatorBase").CommunicatorBase;
 
 class DirectCommunicator extends CommunicatorBase{
     constructor(){

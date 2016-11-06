@@ -5,9 +5,9 @@ var {sourcePath, expect} = require("../../fixtures/global");
 require(`${sourcePath}/global/extends/extendArray`);
 
 describe("test extending built-in Array", ()=>{
-   it("test Array.delete method", ()=>{
+   it("test Array.deleteByValue method", ()=>{
        let a = [1,2,3];
-       a.delete(2);
+       a.deleteByValue(2);
        expect(a).to.eql([1,3]);
    });
 });

@@ -1,7 +1,7 @@
 /**
  * Created by shange on 9/7/2016.
  */
-let {ParserBase} = require('./parserBase');
+let {ParserBase} = require('../../infrastructures/parserBase');
 let Converter    = require('showdown').Converter;
 let _            = require('lodash');
 
@@ -9,7 +9,7 @@ class MarkdownToHtmlParser extends ParserBase{
     constructor(){
         super();
         this._converter = new Converter();
-        this._htmlDocument;
+        this._html;
     }
 
     get options(){
@@ -22,17 +22,13 @@ class MarkdownToHtmlParser extends ParserBase{
         });
     }
 
-    get document(){
-        return this._htmlDocument;
+    get html(){
+        return this._html;
     }
 
     parse(markdown){
-        this._htmlDocument = this._converter.makeHtml(markdown);
-        return this._htmlDocument;
-    }
-
-    generateHtmlDocument(path){
-
+        this._html = this._converter.makeHtml(markdown);
+        return this._html;
     }
 }
 

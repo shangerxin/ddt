@@ -1,14 +1,18 @@
 /**
  * Created by shange on 9/7/2016.
  */
-let {Observable}   = require("../../infrastructures/observable");
-let {StateMachine} = require("../../libs/state-machine");
-let {CONST}        = require("../../global/const");
+let {Observable}   = require("./observable");
+let {StateMachine} = require("../libs/state-machine");
+let {CONST}        = require("../global/const");
 let _              = require("lodash");
+let {utils}        = require("../global/utils");
+
+require("../global/extends/extendArray");
 
 class AgentBase extends Observable {
     constructor() {
         super();
+        this._id            = utils.getGUID();
         this._fsm           = StateMachine.create({
                                                       initial  : 'idle',
                                                       events   : [
@@ -77,6 +81,10 @@ class AgentBase extends Observable {
 
     get state() {
         return this._fsm.current;
+    }
+
+    get id() {
+        return this._id;
     }
 
     static get topics() {
@@ -313,8 +321,8 @@ class AgentBase extends Observable {
     addCommunicator(communicator) {
         let cmdTopics = CONST.commands.agent;
         _.forEach(cmdTopics, (cmdTopic)=> {
-            communicator.subscribe(cmdTopic, (cmdTopic, ...args)=> {
-                let fsm = this._fsm;
+            let fsm = this._fsm;
+            communicator.subscribe(cmdTopic, function(cmdTopic, ...args){
                 switch (cmdTopic) {
                     case cmdTopics.start:
                         fsm.start(...args);
@@ -353,7 +361,7 @@ class AgentBase extends Observable {
     }
 
     removeCommunicator(communicator) {
-        this._communicators.delete(communicator);
+        this._communicators.deleteByValue(communicator);
     }
 }
 

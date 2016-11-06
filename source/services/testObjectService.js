@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/31/2016.
  */
-let {ServiceBase} = require("./serviceBase");
+let {ServiceBase} = require("../infrastructures/services/serviceBase");
 
 class TestObjectService extends ServiceBase{
     constructor(){

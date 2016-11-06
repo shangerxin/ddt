@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/7/2016.
  */
-let {EngineBase} = require("./engineBase");
+let {EngineBase} = require("../../infrastructures/engineBase");
 let {CONST}= require("../../global/const");
 
 class Engine extends EngineBase {

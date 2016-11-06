@@ -1,17 +1,19 @@
 /**
  * Created by shange on 10/4/2016.
  */
-let {Observable}                = require("../../infrastructures/observable");
-let {StateMachine}              = require("../../libs/state-machine");
-let {CONST}                     = require("../../global/const");
-let {utils}                     = require("../../global/utils");
+let {Observable}                = require("./observable");
+let {StateMachine}              = require("../libs/state-machine");
+let {CONST}                     = require("../global/const");
+let {utils}                     = require("../global/utils");
 let _                           = require("lodash");
-let {UnknownCommandError}       = require("../../infrastructures/errors");
-require("../../global/extends/extendArray");
+let {UnknownCommandError}       = require("./errors");
+
+require("../global/extends/extendArray");
 
 class EngineBase extends Observable {
     constructor() {
         super();
+        this._id            = utils.getGUID();
         this._fsm           = StateMachine.create({
                                                       initial  : 'idle',
                                                       events   : [
@@ -88,6 +90,10 @@ class EngineBase extends Observable {
 
     get state() {
         return this._fsm.current;
+    }
+
+    get id() {
+        return this._id;
     }
 
     static get topics() {
@@ -367,8 +373,8 @@ class EngineBase extends Observable {
         let cmdTopics = CONST.commands.engine;
         let $this     = this;
         _.forEach(cmdTopics, (cmdTopic)=> {
-            communicator.subscribe(cmdTopic, (cmdTopic, ...args)=> {
-                let fsm = this._fsm;
+            let fsm = this._fsm;
+            communicator.subscribe(cmdTopic, function(cmdTopic, ...args){
                 switch (cmdTopic) {
                     case cmdTopics.identify:
                         fsm.identify(...args);
@@ -397,7 +403,7 @@ class EngineBase extends Observable {
                     default:
                         fsm.warn(cmdTopic, new UnknownCommandError(), ...args);
                 }
-            });
+            }, this);
         });
         _.forEach(CONST.topics.engine.events, (event)=> {
             $this.subscribe(event, function (...args) {
@@ -413,7 +419,7 @@ class EngineBase extends Observable {
     }
 
     removeCommunicator(communicator) {
-        this._communicators.delete(communicator);
+        this._communicators.deleteByValue(communicator);
     }
 }
 

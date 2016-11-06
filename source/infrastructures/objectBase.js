@@ -25,6 +25,10 @@ class ObjectBase{
     get [Symbol.toStringTag](){
         return this.toString();
     }
+
+    toJSON(){
+        return JSON.stringify(this);
+    }
 }
 
 /*

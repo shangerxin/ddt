@@ -1,7 +1,7 @@
 /**
  * Created by shange on 9/7/2016.
  */
-var {ObjectBase} = require("../../infrastructures/objectBase");
+var {ObjectBase} = require("./objectBase");
 
 class ParserBase extends ObjectBase{
     constructor(){

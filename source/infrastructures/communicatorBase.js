@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/13/2016.
  */
-var {Observable} = require("../../infrastructures/observable");
+var {Observable} = require("./observable");
 
 class CommunicatorBase extends Observable{
     constructor(){

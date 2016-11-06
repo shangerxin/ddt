@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/7/2016.
  */
-let {MessageServiceBase} = require("./messageServiceBase");
+let {MessageServiceBase} = require("../infrastructures/services/messageServiceBase");
 
 class MessageService extends MessageServiceBase{
     constructor(){

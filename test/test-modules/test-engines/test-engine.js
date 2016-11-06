@@ -4,7 +4,7 @@
 var {sourcePath, expect} = require("../../fixtures/global");
 var {Engine}             = require(`${sourcePath}/modules/engines/engine`);
 var sinon                = require("sinon");
-var {CommunicatorBase}   = require(`${sourcePath}/modules/communicators/communicatorBase`);
+var {CommunicatorBase}   = require(`${sourcePath}/infrastructures/communicatorBase`);
 var {CONST}              = require(`${sourcePath}/global/const`);
 
 

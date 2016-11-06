@@ -91,9 +91,9 @@ var utils = (function () {
          @return bool
          */
         safeCallback           : function (callback) {
-            let isCalled = false;
             if (callback) {
                 return (result)=> {
+                    let isCalled = false;
                     if (!isCalled) {
                         isCalled = true;
                         return callback(result);
@@ -320,6 +320,9 @@ var utils = (function () {
                 }
             }
         },
+        getGUID(){
+            return "uuid";
+        }
     };
     return utils;
 })();
