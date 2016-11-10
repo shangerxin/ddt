@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <input type="text" id="x"/>
+    +
+    <input type="text" id="y"/>
+    = 
+    <span id="output">
+    </span>
+    <div>
+        <button id="sum">sum</button>
+    </div>
+    <br/>
+    <a href="http://www.bing.com">bing.com</a>
+    <script>
+        var x = document.getElementById("x");
+        var y = document.getElementById("y");
+        var sum = document.getElementById("sum");
+        
+        var output = document.getElementById("output");
+        sum.addEventListener("click", function(){
+            output.innerText = Number(x.value) + Number(y.value);
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,45 +1,45 @@
 /**
  * Created by shange on 11/3/2016.
  */
-
 var page = require('webpage').create();
 
-page.settings.userAgent = 'phantomjs';
-console.info('test start');
-page.open('http://www.google.com/ncr', function (status) {
-    console.info("navigate to google status", status);
-    page.evaluate(function () {
-        console.info("q element", document.getElementsByName("q"));
-        document.getElementsByName("q")[0].value = "HPE";
-        document.getElementsByName("btnG")[0].click();
-        console.info("go button", document.getElementsByName("btnG")[0]);
-        console.info("window location", window.location.href);
-        //document.addEventListener("load", function(){
-        if (document.title != "HPE - Google Search") {
-            throw new Error("Navigate to google search HPE failed!");
+
+page.onConsoleMessage = function(msg){
+    console.log(msg);
+};
+
+
+page.open("file:///F:/test-phantom.html", function(status){
+    page.includeJs("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function() {
+        if(status == "success"){
+            var link = page.evaluate(function(){
+                console.info("test start");
+                var $x = $("#x");
+                console.info("get x");
+                var $y = $("#y");
+                console.info("get y");
+                var $sum = $("#sum");
+                console.info("get sum");
+                var $output = $("#output");
+                console.info("get output");
+                $x.prop('value', 5);
+                $y.prop('value', 6);
+                //$sum.click();
+                document.getElementById("sum").click();
+                console.info($x.prop('value') + " + " + $y.prop('value') + " = " + $output.text());
+                var $a = $("a").first();
+                return $a.prop("href");
+            });
+            page.open(link, function(status){
+                if(status == "success") {
+                    console.info("navigate to", window.location.href);
+                    page.evaluate(function(){
+                        console.info("title ", document.title);
+                    });
+                }
+            });
         }
-        else {
-            console.info("Test pass");
-        }
-        //})
     });
-    phantom.exit();
 });
-
-
-//var webdriver = require('selenium-webdriver'),
-//    By = webdriver.By,
-//    until = webdriver.until;
-//
-//var driver = new webdriver.Builder()
-//    .forBrowser('chrome')
-//    .build();
-//
-//driver.get('http://www.google.com/ncr');
-//driver.findElement(By.name('q')).sendKeys('HPE');
-//driver.findElement(By.name('btnG')).click();
-//driver.wait(until.titleIs('HPE - Google Search'), 1000);
-//
-
 
 
