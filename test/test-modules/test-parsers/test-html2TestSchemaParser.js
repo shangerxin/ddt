@@ -3,9 +3,9 @@
  */
 
 var {sourcePath, expect} = require("../../fixtures/global");
-var Parser = require(`${sourcePath}/modules/parsers/html2TestSchemaParser`).HtmlToTestSchemaParser;
+var Parser = require(`${sourcePath}/modules/parsers/html2TestSuiteParser`).HtmlToTestSuiteParser;
 
-describe('test HtmlToTestSchemaParser suite', ()=>{
+describe('test HtmlToTestSuiteParser suite', ()=>{
     it('test create parser instance', ()=>{
         let parser = new Parser();
         expect(typeof parser.parse).to.equal("function");

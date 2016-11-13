@@ -1,16 +1,21 @@
 /**
  * Created by shange on 9/7/2016.
  */
-var {ObjectBase} = require("../infrastructures/objectBase");
-var {utils} = require("../global/utils");
+var {ObjectBase} = require("../objectBase");
+var {utils} = require("../../global/utils");
 
-class TestObject extends ObjectBase {
-    constructor(action, descriptor, domain) {
+class TestObjectBase extends ObjectBase {
+    constructor(action, descriptor, domain, name) {
         super();
         this._action     = action;
         this._descriptor = descriptor;
         this._domain     = domain;
+        this._name       = name;
         this._id         = utils.getGUID();
+    }
+
+    get name(){
+        return this._name;
     }
 
     get id() {
@@ -26,11 +31,12 @@ class TestObject extends ObjectBase {
     }
 
     get descriptor() {
-
+        return this._descriptor;
     }
 
-    identify(document) {
+    set descriptor(value){
+        this._descriptor = value;
     }
 }
 
-exports.TestObject = TestObject;
+exports.TestObjectBase = TestObjectBase;

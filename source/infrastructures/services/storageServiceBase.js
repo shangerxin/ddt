@@ -7,6 +7,12 @@ class StorageServiceBase extends ServiceBase{
     constructor(){
         super();
     }
+
+    save(serilizable){
+    }
+
+    load(){
+    }
 }
 
 exports.StorageServiceBase = StorageServiceBase;

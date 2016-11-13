@@ -3,10 +3,10 @@
  */
 var {ObjectBase} = require("../infrastructures/objectBase");
 
-class TestArguments extends ObjectBase{
+class Arguments extends ObjectBase{
     constructor(){
         super();
     }
 }
 
-exports.TestArguments = TestArguments;
+exports.Arguments = Arguments;

@@ -3,35 +3,32 @@
  */
 
 var {ObjectBase} = require("../infrastructures/objectBase");
-var {TestStep} = require("./step");
+require("../global/extends/extendArray");
 
-
-require("../../global/extends/extendArray");
-
-class TestScript extends ObjectBase{
+class Script extends ObjectBase{
     constructor(){
-        this._steps = [];
-        this._config = {};
+        this._testCases = [];
+        this._config    = {};
     }
 
-    get steps(){
-        return this._steps;
+    get testCases(){
+        return this._testCases;
     }
 
     get configure(){
         return this._config;
     }
 
-    addStep(step){
-        this._steps.push(step);
+    appendTestCase(testCase){
+        this._testCases.push(testCase);
     }
 
-    insertStep(index, step){
-        this._steps.splice(index, 0, step);
+    insertTestCase(index, testCase){
+        this._testCases.splice(index, 0, testCase);
     }
 
-    deleteStep(index){
-        this._steps.splice()
+    deleteTestCase(index){
+        this._testCases.splice()
     }
 
     toJSON(){
@@ -39,4 +36,4 @@ class TestScript extends ObjectBase{
     }
 }
 
-exports.TestScript = TestScript;
+exports.Script = Script;

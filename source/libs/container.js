@@ -8,7 +8,7 @@
 var _registeredTypes = new Map();
 
 var container = {
-    getInstance(type){
+    resolve(type){
         let constructor = _registeredTypes.get(type);
         if(typeof constructor === "function"){
             return constructor();

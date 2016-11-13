@@ -3,7 +3,7 @@
  */
 var {ObjectBase} = require("../infrastructures/objectBase");
 
-class TestObjectDescriptor extends ObjectBase{
+class Descriptor extends ObjectBase{
     constructor(css, identity, js, xpath){
         super();
         this._xpath = xpath;
@@ -33,4 +33,4 @@ class TestObjectDescriptor extends ObjectBase{
     }
 }
 
-exports.TestObjectDescriptor = TestObjectDescriptor;
+exports.Descriptor = Descriptor;

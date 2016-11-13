@@ -4,6 +4,8 @@
 
 var CONST = {
     NOT_FOUND: -1,
+    TEST_OBJECT_PREFIX:"$",
+    TEST_VARIABLE_PREFIX:"@",
     states   : {
         engine: {
             idle       : "idle",
@@ -193,9 +195,8 @@ var CONST = {
             hover   : ["hover"],
             drag    : ["drag"],
             drop    : ["drop"],
-            input   : ["input"],
+            dbclick   : ["dbclick", "double click"],
             type    : ["type", "press"],
-            expect  : ["expect"]
         },
         stepTypes : {
             type        : "type",
@@ -204,13 +205,14 @@ var CONST = {
             wait        : "wait",
             activeTab   : "activeTab",
             if          : "if",
-            else        : "else",
             eval        : "eval",
             evalOnObject: "evalOnObject",
-            execute     : "execute",
-            verify      : "verify",
             waitObject  : "waitObject",
-
+            exit        : "exit",
+            catch       : "catch",
+            break       : "break",
+            continue    : "continue",
+            expect      : "expect"
         }
     }
 };
