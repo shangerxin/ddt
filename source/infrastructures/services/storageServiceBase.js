@@ -8,10 +8,10 @@ class StorageServiceBase extends ServiceBase{
         super();
     }
 
-    save(serilizable){
+    save(key, value){
     }
 
-    load(){
+    load(key){
     }
 }
 

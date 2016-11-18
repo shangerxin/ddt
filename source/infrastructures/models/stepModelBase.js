@@ -1,10 +1,10 @@
 /**
  * Created by shange on 11/6/2016.
  */
-var {ObjectBase} = require("../../infrastructures/objectBase");
+var {ModelBase} = require("./modelBase");
 var {utils} = require("../../global/utils");
 
-class TestStepBase extends ObjectBase{
+class TestStepModeBase extends ModelBase{
     constructor(action, args, onbefore, onafter){
         super();
         this._action = action;
@@ -64,4 +64,4 @@ class TestStepBase extends ObjectBase{
     }
 }
 
-exports.TestStep = TestStepBase;
+exports.TestStepModel = TestStepModeBase;

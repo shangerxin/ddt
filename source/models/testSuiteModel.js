@@ -1,14 +1,14 @@
 /**
  * Created by shange on 11/12/2016.
  */
-var {ObjectBase} = require("../infrastructures/objectBase");
-var {utils} = require("../global/utils");
+let {ModelBase} = require("../infrastructures/models/modelBase");
+let {utils} = require("../global/utils");
 
-class TestSuite extends ObjectBase{
+class TestSuiteModel extends ModelBase{
     constructor(description){
         super();
         this._id          = utils.getGUID();
-        this._testCases   = [];
+        this._testSteps = [];
         this._description = description;
     }
 
@@ -17,7 +17,7 @@ class TestSuite extends ObjectBase{
     }
 
     get testCases(){
-        return this._testCases;
+        return this._testSteps;
     }
 
     get description(){
@@ -25,4 +25,4 @@ class TestSuite extends ObjectBase{
     }
 }
 
-exports.TestSuite = TestSuite;
+exports.TestSuiteModel = TestSuiteModel;

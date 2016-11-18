@@ -2,7 +2,7 @@
  * Created by shange on 9/7/2016.
  */
 let {ParserBase} = require('../../infrastructures/parserBase');
-let {TestCase} = require("../../models/testCase");
+let {TestCaseModel} = require("../../models/testCaseModel");
 let {container} = require("../../libs/container");
 let cheerio = require('cheerio');
 
@@ -29,7 +29,7 @@ class HtmlToTestSuiteParser extends ParserBase{
 
         let testCases = [];
         testCaseRoots.forEach((testCaseRoot, i)=>{
-            let testCase = new TestCase();
+            let testCase = new TestCaseModel();
             let testCaseDescription = testCaseRoot.children().first();
             if(testCaseDescription){
                 let description = testCaseDescription.text();

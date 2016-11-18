@@ -8,6 +8,9 @@ class TestObjectServiceBase extends ServiceBase{
         super();
     }
 
+    getTestObjectById(id){
+    }
+
     getTestObjects(domain){
     }
 

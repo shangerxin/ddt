@@ -1,9 +1,9 @@
 /**
  * Created by shange on 11/6/2016.
  */
-var {ObjectBase} = require("../infrastructures/objectBase");
+var {ModelBase} = require("../infrastructures/models/modelBase");
 
-class Descriptor extends ObjectBase{
+class DescriptorModel extends ModelBase{
     constructor(css, identity, js, xpath){
         super();
         this._xpath = xpath;
@@ -26,11 +26,9 @@ class Descriptor extends ObjectBase{
         this._css = value;
     }
 
-
-
     toJSON(){
         return `{xpath:${this.xpath}, css:${this.css}, js:${js}}`
     }
 }
 
-exports.Descriptor = Descriptor;
+exports.DescriptorModel = DescriptorModel;

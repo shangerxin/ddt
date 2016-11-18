@@ -3,8 +3,8 @@
  */
 let {ServiceBase} = require("./serviceBase");
 
-class MessageServiceBase extends ServiceBase{
-    constructor(){
+class MessageServiceBase extends ServiceBase {
+    constructor() {
         super();
     }
 }

@@ -1,9 +1,9 @@
 /**
  * Created by shange on 11/13/2016.
  */
-var {ObjectBase} = require("../../infrastructures/objectBase");
+var {ModelBase} = require("./modelBase");
 
-class TestVariableBase extends ObjectBase{
+class TestVariableModelBase extends ModelBase{
     constructor(name, context){
         super();
         this._name = name;
@@ -19,4 +19,4 @@ class TestVariableBase extends ObjectBase{
     }
 }
 
-exports.TestVariableBase = TestVariableBase;
+exports.TestVariableModelBase = TestVariableModelBase;
