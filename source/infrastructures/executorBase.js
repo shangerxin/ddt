@@ -13,6 +13,10 @@ class ExecutorBase extends ObjectBase{
         this.communicator = communicator;
     }
 
+    get type(){
+        return ExecutorBase.name;
+    }
+
     _init(){
 
     }

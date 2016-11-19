@@ -7,6 +7,10 @@ class ConfigurationModel extends ModelBase{
     constructor(){
         super();
     }
+
+    get type(){
+        return ConfigurationModel.name;
+    }
 }
 
 exports.ConfigurationModel = ConfigurationModel;

@@ -8,6 +8,10 @@ class TestObjectServiceBase extends ServiceBase{
         super();
     }
 
+    get type(){
+        return TestObjectServiceBase.name;
+    }
+
     getTestObjectById(id){
     }
 

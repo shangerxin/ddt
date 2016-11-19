@@ -8,7 +8,12 @@ class ArgumentModelBase extends  ModelBase{
         super();
     }
 
+    get type(){
+        return ArgumentModelBase.name;
+    }
+
     isValid(value){
+        return false;
     }
 }
 

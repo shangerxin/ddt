@@ -3,10 +3,13 @@
  */
 let {ObjectBase} = require("./objectBase");
 
-
 class FactoryBase extends ObjectBase{
     constructor(){
         super();
+    }
+
+    get type(){
+        return FactoryBase.name;
     }
 
     static instance(){

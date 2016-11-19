@@ -10,8 +10,8 @@ class TestVariableModelBase extends ModelBase{
         this._context = context;
     }
 
-    get name(){
-        return this._name;
+    get type(){
+        return TestVariableModelBase.name;
     }
 
     get value(){

@@ -4,7 +4,7 @@
 var {ModelBase} = require("./modelBase");
 var {utils} = require("../../global/utils");
 
-class TestStepModeBase extends ModelBase{
+class StepModelBase extends ModelBase{
     constructor(action, args, onbefore, onafter){
         super();
         this._action = action;
@@ -13,12 +13,11 @@ class TestStepModeBase extends ModelBase{
         this._args = args;
         this._target = args.target;
         this._relativeObject = args.relativeTarget;
-        this._id = utils.getGUID();
         this._result = null;
     }
 
-    get id(){
-        return this._id;
+    get type(){
+        return StepModelBase.name;
     }
 
     get target(){
@@ -64,4 +63,4 @@ class TestStepModeBase extends ModelBase{
     }
 }
 
-exports.TestStepModel = TestStepModeBase;
+exports.StepModelBase = StepModelBase;

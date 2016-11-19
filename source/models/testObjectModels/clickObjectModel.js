@@ -3,14 +3,14 @@
  */
 let {TestObjectModelBase} = require("../../infrastructures/models/testObjectModelBase");
 
-class CodeObjectModel extends TestObjectModelBase{
+class ClickObjectModel extends TestObjectModelBase{
     constructor(){
         super();
     }
 
     get type(){
-        return CodeObjectModel.name;
+        return ClickObjectModel.name;
     }
 }
 
-exports.CodeObjectModel = CodeObjectModel;
+exports.ClickObjectModel = ClickObjectModel;

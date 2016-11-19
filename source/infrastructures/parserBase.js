@@ -1,11 +1,18 @@
 /**
  * Created by shange on 9/7/2016.
  */
-var {ObjectBase} = require("./objectBase");
+let {ObjectBase} = require("./objectBase");
 
 class ParserBase extends ObjectBase{
     constructor(){
         super();
+    }
+
+    get type(){
+        return ParserBase.name;
+    }
+
+    get result(){
     }
 
     parse(){

@@ -3,17 +3,24 @@
  */
 let {ParserBase} = require('../../infrastructures/parserBase');
 let {TestCaseModel} = require("../../models/testCaseModel");
-let {container} = require("../../libs/container");
 let cheerio = require('cheerio');
 
-class HtmlToTestSuiteParser extends ParserBase{
+class HtmlToTestSuitesParser extends ParserBase{
     constructor(stepParser){
         super();
         this._stepParser = stepParser;
     }
 
+    get type(){
+        return HtmlToTestSuitesParser.name;
+    }
+
+    get result(){
+
+    }
+
     static get sentenceSeperator(){
-        return /[\.\?]/;
+        return /[\.\?]/g;
     }
 
     parse(html){
@@ -42,7 +49,7 @@ class HtmlToTestSuiteParser extends ParserBase{
                     if(stepsRoot){
                         let steps = [];
                         stepsRoot.children().each((i, elem)=>{
-                            let sentences = $(elem).text().split(HtmlToTestSuiteParser.sentenceSeperator);
+                            let sentences = $(elem).text().split(HtmlToTestSuitesParser.sentenceSeperator);
                             sentences.forEach((sentence, i)=>{
                                 let step = this._stepParser(sentence);
                                 if(step){
@@ -58,4 +65,4 @@ class HtmlToTestSuiteParser extends ParserBase{
     }
 }
 
-exports.HtmlToTestSuiteParser = HtmlToTestSuiteParser;
+exports.HtmlToTestSuitesParser = HtmlToTestSuitesParser;

@@ -8,10 +8,14 @@ class StorageServiceBase extends ServiceBase{
         super();
     }
 
-    save(key, value){
+    get type(){
+        return StorageServiceBase.name;
     }
 
-    load(key){
+    save(uri, data){
+    }
+
+    load(uri){
     }
 }
 

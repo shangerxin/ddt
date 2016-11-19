@@ -5,9 +5,9 @@
 /*
  * Simple JavaScript IoC container
  */
-var _registeredTypes = new Map();
+let _registeredTypes = new Map();
 
-var container = {
+let container = {
     resolve(type){
         let constructor = _registeredTypes.get(type);
         if(typeof constructor === "function"){

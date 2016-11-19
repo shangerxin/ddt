@@ -10,6 +10,10 @@ class DescriptorModel extends ModelBase{
         this._css = css;
     }
 
+    get type(){
+        return DescriptorModel.name;
+    }
+
     get xpath(){
         return this._xpath;
     }

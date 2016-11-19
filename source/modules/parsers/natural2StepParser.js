@@ -3,7 +3,6 @@
  */
 let {ParserBase} = require("../../infrastructures/parserBase");
 let {CONST} = require("../../global/const");
-let {container} = require("../../libs/container");
 let {natural} = require("natural");
 
 let actions = CONST.schema.actions;
@@ -24,6 +23,14 @@ let tk = new natural.TreebankWordTokenizer();
 class Natural2StepParser extends ParserBase{
     constructor(){
         super();
+    }
+
+    get type(){
+        return Natural2StepParser.name;
+    }
+
+    get result(){
+
     }
 
     parse(sentence){

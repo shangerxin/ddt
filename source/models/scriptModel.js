@@ -7,9 +7,22 @@ let {ConfigurationModel} = require("./configurationModel");
 require("../global/extends/extendArray");
 
 class ScriptModel extends ModelBase{
-    constructor(){
+    constructor(name){
         this._testSteps     = [];
         this._configuration = new ConfigurationModel();
+        this._name = name;
+    }
+
+    get type(){
+        return ScriptModel.name;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(value){
+        this._name = value;
     }
 
     get testCases(){

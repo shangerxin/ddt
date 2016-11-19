@@ -1,13 +1,17 @@
 /**
  * Created by shange on 10/6/2016.
  */
-var {ObjectBase} = require("./objectBase");
-var {SubscriberTree} = require("../libs/subscriberTree");
+let {ObjectBase} = require("./objectBase");
+let {SubscriberTree} = require("../libs/subscriberTree");
 
 class Observable extends ObjectBase{
     constructor(){
         super();
         this._subscribers = new SubscriberTree();
+    }
+
+    get type(){
+        return Observable.name;
     }
 
     subscribe(topic, fn, context){

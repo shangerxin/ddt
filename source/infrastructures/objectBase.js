@@ -1,7 +1,7 @@
 /**
  * Created by shange on 10/4/2016.
  */
-var {logger} = require("../libs/logger");
+let {logger} = require("../libs/logger");
 
 class ObjectBase{
     /*
@@ -24,6 +24,10 @@ class ObjectBase{
 
     get [Symbol.toStringTag](){
         return this.toString();
+    }
+
+    get type(){
+        return ObjectBase.name;
     }
 
     toJSON(){

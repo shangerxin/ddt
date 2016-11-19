@@ -7,6 +7,10 @@ class ServiceBase extends Observable{
     constructor(){
         super();
     }
+
+    get type(){
+        return ServiceBase.name;
+    }
 }
 
 exports.ServiceBase = ServiceBase;

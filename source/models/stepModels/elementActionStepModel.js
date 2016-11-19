@@ -1,10 +1,16 @@
 /**
  * Created by shange on 11/12/2016.
  */
-let {StepBase} = require("../../infrastructures/models/stepModelBase");
+let {StepModelBase} = require("../../infrastructures/models/stepModelBase");
 
-class ElementActionStep extends StepBase{
-    static match(){
+class ElementActionStep extends StepModelBase{
+    constructor(){
+        super();
+    }
 
+    get type(){
+        return ElementActionStep.name;
     }
 }
+
+exports.ElementActionStep = ElementActionStep;

@@ -88,6 +88,10 @@ class EngineBase extends Observable {
         this._communicators = [];
     }
 
+    get type(){
+        return EngineBase.name;
+    }
+
     get state() {
         return this._fsm.current;
     }

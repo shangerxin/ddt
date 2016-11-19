@@ -8,6 +8,10 @@ class LoggerBase extends ObjectBase{
         super();
     }
 
+    get type(){
+        return LoggerBase.name;
+    }
+
     log(msg, ...args){
     }
 

@@ -5,15 +5,23 @@ var {ModelBase} = require("../infrastructures/models/modelBase");
 var {utils} = require("../global/utils");
 
 class TestCaseModel extends ModelBase{
-    constructor(description){
+    constructor(description, name){
         super();
-        this._id          = utils.getGUID();
         this._testSteps = [];
         this._description = description;
+        this._name = name;
     }
 
-    get id(){
-        return this._id;
+    get type(){
+        return TestCaseModel.name;
+    }
+
+    get name(){
+        return this._name;
+    }
+
+    set name(value){
+        this._name = value;
     }
 
     get steps(){

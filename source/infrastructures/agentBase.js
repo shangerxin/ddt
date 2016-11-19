@@ -79,6 +79,10 @@ class AgentBase extends Observable {
         this._communicators = [];
     }
 
+    get type(){
+        return AgentBase.name;
+    }
+
     get state() {
         return this._fsm.current;
     }

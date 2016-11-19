@@ -11,15 +11,10 @@ class TestObjectModelBase extends ModelBase {
         this._descriptor = descriptor;
         this._domain     = domain;
         this._name       = name;
-        this._id         = utils.getGUID();
     }
 
-    get name(){
-        return this._name;
-    }
-
-    get id() {
-        return this._id;
+    get type(){
+        return TestObjectModelBase.name;
     }
 
     get domain() {

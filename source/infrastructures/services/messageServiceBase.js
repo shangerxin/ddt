@@ -7,6 +7,10 @@ class MessageServiceBase extends ServiceBase {
     constructor() {
         super();
     }
+
+    get type(){
+        return MessageServiceBase.name;
+    }
 }
 
 exports.MessageServiceBase = MessageServiceBase;
