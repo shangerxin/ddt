@@ -6,8 +6,9 @@ let {CONST} = require("../../global/const");
 let {TestObjectModelFactory} = require("../../factories/testObjectModelFactory");
 
 class Natural2TestSuiteParser extends ParserBase{
-    constructor(){
+    constructor(testObjectModelFactory){
         super();
+        this._factory = testObjectModelFactory;
     }
 
     get result(){

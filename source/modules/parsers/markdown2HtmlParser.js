@@ -5,14 +5,14 @@ let {ParserBase} = require('../../infrastructures/parserBase');
 let Converter    = require('showdown').Converter;
 let _            = require('lodash');
 
-class MarkdownToHtmlParser extends ParserBase{
+class Markdown2HtmlParser extends ParserBase{
     constructor(){
         super();
         this._converter = new Converter();
     }
 
     get type(){
-        return MarkdownToHtmlParser.name;
+        return Markdown2HtmlParser.name;
     }
 
     get options(){
@@ -35,4 +35,4 @@ class MarkdownToHtmlParser extends ParserBase{
     }
 }
 
-exports.MarkdownToHtmlParser = MarkdownToHtmlParser;
+exports.Markdown2HtmlParser = Markdown2HtmlParser;

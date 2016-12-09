@@ -6,8 +6,9 @@ let {CONST} = require("../../global/const");
 
 
 class Natural2TestCaseParser extends ParserBase{
-    constructor(){
+    constructor(testObjectModelFactory){
         super();
+        this._factory = testObjectModelFactory;
     }
 
     get type(){
@@ -19,6 +20,7 @@ class Natural2TestCaseParser extends ParserBase{
     }
 
     parse(sentences){
+        let suite = this._factory.createTestSuite();
 
     }
 
