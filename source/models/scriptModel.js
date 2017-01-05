@@ -38,11 +38,11 @@ class ScriptModel extends ModelBase{
     }
 
     insertTestCase(index, testCase){
-        this._testCases.splice(index, 0, testCase);
+        this._testCases.insert(index, testCase);
     }
 
     deleteTestCase(index){
-        this._testCases.splice()
+        this._testCases.deleteByIndex(index);
     }
 
     toJSON(){
