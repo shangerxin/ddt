@@ -8,7 +8,7 @@ require("../global/extends/extendArray");
 
 class ScriptModel extends ModelBase{
     constructor(name){
-        this._testCases     = [];
+        this.steps          = [];
         this._configuration = new ConfigurationModel();
         this._name          = name;
     }
@@ -26,7 +26,7 @@ class ScriptModel extends ModelBase{
     }
 
     get testCases(){
-        return this._testCases;
+        return this.steps;
     }
 
     get configuration(){
@@ -34,15 +34,15 @@ class ScriptModel extends ModelBase{
     }
 
     appendTestCase(testCase){
-        this._testCases.push(testCase);
+        this.steps.push(testCase);
     }
 
     insertTestCase(index, testCase){
-        this._testCases.insert(index, testCase);
+        this.steps.insert(index, testCase);
     }
 
     deleteTestCase(index){
-        this._testCases.deleteByIndex(index);
+        this.steps.deleteByIndex(index);
     }
 
     toJSON(){

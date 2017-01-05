@@ -7,8 +7,7 @@ let {utils}     = require("../global/utils");
 class TestSuiteModel extends ModelBase {
 	constructor(description, name) {
 		super();
-		this._id          = utils.getGUID();
-		this._testCases = [];
+		this._testCases   = [];
 		this._description = description;
 		this._name        = name;
 	}

@@ -45,19 +45,19 @@ class Html2TestSuitesParser extends ParserBase{
         //             let stepsRoot;
         //             do{
         //                 stepsRoot = testCaseDescription.next();
-        //             }while(stepsRoot && stepsRoot.text().toLowerCase() != "steps");
+        //             }while(stepsRoot && stepsRoot.text().toLowerCase() != "_steps");
         //             if(stepsRoot){
-        //                 let steps = [];
+        //                 let _steps = [];
         //                 stepsRoot.children().each((i, elem)=>{
         //                     let sentences = $(elem).text().split(Html2TestSuitesParser.sentenceSeperator);
         //                     sentences.forEach((sentence, i)=>{
         //                         let step = this._stepParser(sentence);
         //                         if(step){
-        //                             steps.push(step);
+        //                             _steps.push(step);
         //                         }
         //                     });
         //                 });
-        //                 return steps;
+        //                 return _steps;
         //             }
         //         }
         //     }

@@ -2,6 +2,7 @@
  * Created by Shang, Erxin (Edwin) on 10/5/2016.
  */
 let {ObjectBase} = require("./objectBase");
+let {NotImplementedError} = require("./errors");
 
 class FactoryBase extends ObjectBase{
     constructor(){
@@ -12,7 +13,8 @@ class FactoryBase extends ObjectBase{
         return FactoryBase.name;
     }
 
-    static instance(){
+    static get instance(){
+        throw new NotImplementedError();
     }
 }
 

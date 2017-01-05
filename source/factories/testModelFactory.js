@@ -26,30 +26,6 @@ class TestModelFactory extends FactoryBase{
     createTestVariable(name){
         return new TestVariableModel(name);
     }
-
-    createBrowserObject(){
-        return new BrowserObjectModel();
-    }
-
-    createClickObject(){
-        return new ClickObjectModel();
-    }
-
-    createCodeObject(){
-        return new CodeObjectModel();
-    }
-
-    createInputObject(){
-        return new InputObjectModel();
-    }
-
-    createTabObject(){
-        return new TabObjectModel();
-    }
-
-    createUploadObject(){
-        return new UploadObjectModel();
-    }
 }
 
 exports.TestModelFactory = TestModelFactory;

@@ -7,7 +7,7 @@ var {utils} = require("../global/utils");
 class TestCaseModel extends ModelBase{
     constructor(description, name){
         super();
-        this._testCases   = [];
+        this._steps       = [];
         this._description = description;
         this._name        = name;
     }
@@ -25,7 +25,7 @@ class TestCaseModel extends ModelBase{
     }
 
     get steps(){
-        return this._testCases;
+        return this._steps;
     }
 
     get description(){
