@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/6/2016.
+ * Created by Shang, Erxin (Edwin) on 11/6/2016.
  */
 var {sourcePath, expect} = require("../fixtures/global");
 var container            = require(`${sourcePath}/libs/container`).container;

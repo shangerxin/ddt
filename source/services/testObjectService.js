@@ -1,20 +1,20 @@
 /**
- * Created by shange on 10/31/2016.
+ * Created by Shang, Erxin (Edwin) on 10/31/2016.
  */
-let {TestObjectServiceBase} = require("../infrastructures/services/testObjectServiceBase");
+let {ActionTargetServiceBase} = require("../infrastructures/services/actionTargetServiceBase");
 
-class TestObjectService extends TestObjectServiceBase{
+class TestObjectService extends ActionTargetServiceBase{
     constructor(){
         super();
         this._repositories = new Map();
     }
 
-    getTestObjects(domain){
+    getActionTargets(domain){
         this._repositories.get(domain);
     }
 
-    registTestObject(domain, testObject){
-        let repo = this.getTestObjects(domain);
+    registActionTarget(domain, testObject){
+        let repo = this.getActionTargets(domain);
         if(repo){
             repo.add(testObject);
         }
@@ -25,8 +25,8 @@ class TestObjectService extends TestObjectServiceBase{
         }
     }
 
-    registTestObjects(domain, testObjects){
-        let repo = this.getTestObjects(domain);
+    registActionTargets(domain, testObjects){
+        let repo = this.getActionTargets(domain);
         if(repo){
             testObjects.forEach((testObject)=>{
                 repo.add(testObject);

@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/19/2016.
+ * Created by Shang, Erxin (Edwin) on 11/19/2016.
  */
 let {ParserBase} = require("../../infrastructures/parserBase");
 let {CONST} = require("../../global/const");

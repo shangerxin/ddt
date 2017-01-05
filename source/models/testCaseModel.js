@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/12/2016.
+ * Created by Shang, Erxin (Edwin) on 11/12/2016.
  */
 var {ModelBase} = require("../infrastructures/models/modelBase");
 var {utils} = require("../global/utils");
@@ -7,9 +7,9 @@ var {utils} = require("../global/utils");
 class TestCaseModel extends ModelBase{
     constructor(description, name){
         super();
-        this._testSteps = [];
+        this._testCases   = [];
         this._description = description;
-        this._name = name;
+        this._name        = name;
     }
 
     get type(){
@@ -25,7 +25,7 @@ class TestCaseModel extends ModelBase{
     }
 
     get steps(){
-        return this._testSteps;
+        return this._testCases;
     }
 
     get description(){

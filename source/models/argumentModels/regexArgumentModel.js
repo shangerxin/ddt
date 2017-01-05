@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/18/2016.
+ * Created by Shang, Erxin (Edwin) on 11/18/2016.
  */
 let {ArgumentModelBase} = require("../../infrastructures/models/argumentModelBase");
 

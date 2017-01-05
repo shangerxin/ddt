@@ -1,10 +1,10 @@
 /**
- * Created by shange on 10/6/2016.
+ * Created by Shang, Erxin (Edwin) on 10/6/2016.
  */
 let {FactoryBase}        = require("../infrastructures/factoryBase");
 let {container}          = require("../libs/container");
 let {MessageServiceBase} = require("../infrastructures/services/messageServiceBase");
-let {StorageServiceBase} = require("../infrastructures/services/storageServiceBase");
+let {PersistenceServiceBase} = require("../infrastructures/services/persistenceServiceBase");
 let {TestObjectService}  = require("../services/testObjectService");
 let {ConfigService}      = require("../services/configService");
 
@@ -13,6 +13,10 @@ let _serviceFactory;
 class ServiceFactory extends FactoryBase {
     constructor() {
         super();
+    }
+
+    get type(){
+        return ServiceFactory.name;
     }
 
     static instance() {
@@ -27,7 +31,7 @@ class ServiceFactory extends FactoryBase {
     }
 
     getStorageService() {
-        return container.resolve(StorageServiceBase);
+        return container.resolve(PersistenceServiceBase);
     }
 
     getTestObjectService() {

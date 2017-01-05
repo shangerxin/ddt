@@ -1,10 +1,10 @@
 /**
- * Created by shange on 9/7/2016.
+ * Created by Shang, Erxin (Edwin) on 9/7/2016.
  */
 var {ModelBase} = require("./modelBase");
 var {utils} = require("../../global/utils");
 
-class TestObjectModelBase extends ModelBase {
+class ActionTargetModelBase extends ModelBase {
     constructor(action, descriptor, domain, name) {
         super();
         this._action     = action;
@@ -14,7 +14,7 @@ class TestObjectModelBase extends ModelBase {
     }
 
     get type(){
-        return TestObjectModelBase.name;
+        return ActionTargetModelBase.name;
     }
 
     get domain() {
@@ -34,4 +34,4 @@ class TestObjectModelBase extends ModelBase {
     }
 }
 
-exports.TestObjectModelBase = TestObjectModelBase;
+exports.ActionTargetModelBase = ActionTargetModelBase;

@@ -1,5 +1,5 @@
 /**
- * Created by shange on 10/6/2016.
+ * Created by Shang, Erxin (Edwin) on 10/6/2016.
  */
 let Handler = function (context, isOneTime, fn, node) {
     this.context   = context;
@@ -36,7 +36,7 @@ Node.prototype = {
     removeHandler(fn){
         if (typeof fn === "function") {
             let handlers = this.handlers;
-            for (var i = 0; i < handlers.length; i++) {
+            for (let i = 0; i < handlers.length; i++) {
                 if (handlers[i].fn == fn) {
                     handlers.splice(i, 1);
                     return true;
@@ -88,7 +88,7 @@ SubscriberTree.prototype = {
     },
 
     walkAlongPath: function *(topicPath) {
-        var curNode = this.root;
+        let curNode = this.root;
         for (let topic of _getTopics(topicPath)) {
             let child = curNode.get(topic);
             if(child){
@@ -135,7 +135,8 @@ SubscriberTree.prototype = {
     },
 
     find(topicPath){
-        for (var node of this.walkAlongPath(topicPath)) {
+        let node;
+        for (node of this.walkAlongPath(topicPath)) {
             if (!node) {
                 return;
             }

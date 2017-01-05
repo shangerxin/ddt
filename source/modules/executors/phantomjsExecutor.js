@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/3/2016.
+ * Created by Shang, Erxin (Edwin) on 11/3/2016.
  */
 var page = require('webpage').create();
 

@@ -1,5 +1,5 @@
 /**
- * Created by shange on 10/30/2016.
+ * Created by Shang, Erxin (Edwin) on 10/30/2016.
  */
 var CommunicatorBase = require("../../infrastructures/communicatorBase").CommunicatorBase;
 

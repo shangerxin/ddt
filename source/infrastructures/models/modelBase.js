@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/18/2016.
+ * Created by Shang, Erxin (Edwin) on 11/18/2016.
  */
 let {ObjectBase} = require("../objectBase");
 let {utils} = require("../../global/utils");

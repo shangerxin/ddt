@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/6/2016.
+ * Created by Shang, Erxin (Edwin) on 11/6/2016.
  */
 var {ModelBase} = require("./modelBase");
 var {utils} = require("../../global/utils");

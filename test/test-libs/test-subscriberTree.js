@@ -1,5 +1,5 @@
 /**
- * Created by shange on 10/6/2016.
+ * Created by Shang, Erxin (Edwin) on 10/6/2016.
  */
 var {sourcePath, expect} = require("../fixtures/global");
 var SubscriberTree       = require(`${sourcePath}/libs/SubscriberTree`).SubscriberTree;

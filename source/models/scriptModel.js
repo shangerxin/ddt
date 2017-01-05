@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/6/2016.
+ * Created by Shang, Erxin (Edwin) on 11/6/2016.
  */
 
 let {ModelBase} = require("../infrastructures/models/modelBase");
@@ -8,9 +8,9 @@ require("../global/extends/extendArray");
 
 class ScriptModel extends ModelBase{
     constructor(name){
-        this._testSteps     = [];
+        this._testCases     = [];
         this._configuration = new ConfigurationModel();
-        this._name = name;
+        this._name          = name;
     }
 
     get type(){
@@ -26,7 +26,7 @@ class ScriptModel extends ModelBase{
     }
 
     get testCases(){
-        return this._testSteps;
+        return this._testCases;
     }
 
     get configuration(){
@@ -34,15 +34,15 @@ class ScriptModel extends ModelBase{
     }
 
     appendTestCase(testCase){
-        this._testSteps.push(testCase);
+        this._testCases.push(testCase);
     }
 
     insertTestCase(index, testCase){
-        this._testSteps.splice(index, 0, testCase);
+        this._testCases.splice(index, 0, testCase);
     }
 
     deleteTestCase(index){
-        this._testSteps.splice()
+        this._testCases.splice()
     }
 
     toJSON(){

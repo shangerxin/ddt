@@ -1,5 +1,5 @@
 /**
- * Created by shange on 10/7/2016.
+ * Created by Shang, Erxin (Edwin) on 10/7/2016.
  */
 let logger = require("loglevel");
 

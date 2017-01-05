@@ -1,5 +1,5 @@
 /**
- * Created by shange on 10/5/2016.
+ * Created by Shang, Erxin (Edwin) on 10/5/2016.
  */
 let {Observable} = require("../observable");
 

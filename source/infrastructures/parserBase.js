@@ -1,5 +1,5 @@
 /**
- * Created by shange on 9/7/2016.
+ * Created by Shang, Erxin (Edwin) on 9/7/2016.
  */
 let {ObjectBase} = require("./objectBase");
 

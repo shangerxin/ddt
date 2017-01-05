@@ -1,5 +1,5 @@
 /**
- * Created by shange on 11/13/2016.
+ * Created by Shang, Erxin (Edwin) on 11/13/2016.
  */
 var {ModelBase} = require("./modelBase");
 
@@ -16,6 +16,10 @@ class TestVariableModelBase extends ModelBase{
 
     get value(){
         return this._context.get(this._name);
+    }
+
+    get name(){
+        return this._name;
     }
 }
 

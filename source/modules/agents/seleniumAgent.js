@@ -1,5 +1,5 @@
 /**
- * Created by shange on 9/7/2016.
+ * Created by Shang, Erxin (Edwin) on 9/7/2016.
  */
 let {AgentBase} = require("../../infrastructures/agentBase");
 let net = require("net");
@@ -70,7 +70,7 @@ class SeleniumAgent extends AgentBase {
     onleaveRunning(event, fromState, toState, ...args) { return true; }
 
     onenterRunning(event, fromState, toState, ...args) {
-        childprocess.spawn(`E:\\Project\\document_driven_test\\environments\\node\\node.exe`,
+        childprocess.spawn(`node.exe`,
                            ['E:\\Project\\document_driven_test\\source\\modules\\executors\\seleniumExecutor.js'], {detached
                 :true});
     }

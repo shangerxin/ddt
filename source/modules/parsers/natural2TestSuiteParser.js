@@ -1,9 +1,9 @@
 /**
- * Created by shange on 11/19/2016.
+ * Created by Shang, Erxin (Edwin) on 11/19/2016.
  */
 let {ParserBase} = require("../../infrastructures/parserBase");
 let {CONST} = require("../../global/const");
-let {TestObjectModelFactory} = require("../../factories/testObjectModelFactory");
+let {TestModelFactory} = require("../../factories/testModelFactory");
 
 class Natural2TestSuiteParser extends ParserBase{
     constructor(testObjectModelFactory){
