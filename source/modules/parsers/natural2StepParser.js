@@ -5,7 +5,7 @@ let {ParserBase} = require("../../infrastructures/parserBase");
 let {CONST} = require("../../global/const");
 let natural = require("natural");
 
-let actions = CONST.schema.actions;
+let actions = CONST.schemas.actions;
 
 let steps = {
 

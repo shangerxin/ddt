@@ -6,6 +6,8 @@ let {TestSuiteModel} = require("../models/testSuiteModel");
 let {TestCaseModel} = require("../models/testCaseModel");
 let {TestVariableModel} = require("../models/testVariableModel");
 
+let _testModelFactory;
+
 class TestModelFactory extends FactoryBase{
     constructor(){
         super();
@@ -25,6 +27,13 @@ class TestModelFactory extends FactoryBase{
 
     createTestVariable(name){
         return new TestVariableModel(name);
+    }
+
+    static get instance(){
+        if(!_testModelFactory){
+            _testModelFactory = new TestModelFactory();
+        }
+        return _testModelFactory;
     }
 }
 

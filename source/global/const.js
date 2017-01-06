@@ -137,8 +137,8 @@ var CONST = {
             stop    : "command/executor/stop"
         }
     },
-    schema   : {
-        userEvents: {
+    schemas   : {
+        domEvents: {
             focus                : "focus",
             blur                 : "blur",
             online               : "online",
@@ -195,8 +195,8 @@ var CONST = {
             hover   : ["hover"],
             drag    : ["drag"],
             drop    : ["drop"],
-            dbclick   : ["dbclick", "double click"],
-            type    : ["type", "press"],
+            dbclick : ["dbclick", "double click"],
+            input   : ["type", "press"],
         },
         stepTypes : {
             type        : "type",

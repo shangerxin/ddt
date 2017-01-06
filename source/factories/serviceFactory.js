@@ -19,7 +19,7 @@ class ServiceFactory extends FactoryBase {
         return ServiceFactory.name;
     }
 
-    static instance() {
+    static get instance() {
         if (!_serviceFactory) {
             _serviceFactory = new ServiceFactory();
         }
