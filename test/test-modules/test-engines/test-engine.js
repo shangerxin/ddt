@@ -2,6 +2,7 @@
  * Created by Shang, Erxin (Edwin) on 10/10/2016.
  */
 var {sourcePath, expect} = require("../../fixtures/global");
+let {FakeCommunicator}   = require("../../fixtures/modules/communicators/fakeCommunicator");
 var {Engine}             = require(`${sourcePath}/modules/engines/engine`);
 var sinon                = require("sinon");
 var {CommunicatorBase}   = require(`${sourcePath}/infrastructures/communicatorBase`);
@@ -22,7 +23,7 @@ describe("test module/engine", ()=> {
     });
 
     it("test subscribe event from engine", ()=> {
-        let cb = new CommunicatorBase();
+        let cb = new FakeCommunicator();
         let bfr = sinon.spy();
 
         engine.addCommunicator(cb);

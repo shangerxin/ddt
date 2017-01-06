@@ -2,7 +2,7 @@
  * Created by Shang, Erxin (Edwin) on 9/7/2016.
  */
 let {ParserBase} = require("../../infrastructures/parserBase");
-let cheerio = require("cheerio");
+let {TestModelFactory} = require("../../factories/testModelFactory");
 
 class Html2TestSuitesParser extends ParserBase{
     constructor(stepParser, testObjectModelFactory){
@@ -24,18 +24,10 @@ class Html2TestSuitesParser extends ParserBase{
     }
 
     parse(html){
-        let $ = cheerio.load(html);
+        let testModelFactory = TestModelFactory.instance;
 
-        let headers = $(":header");
-        let testCaseRoots = [];
-        headers.each((i, elem)=>{
-            if($(elem).text().toLowerCase().startsWith("test")){
-                testCaseRoots.push($(elem));
-            }
-        });
-
-        let testCases = [];
-        // testCaseRoots.forEach((testCaseRoot, i)=>{
+        // let testCases = [];
+        // testSuiteHeaders.forEach((testCaseRoot, i)=>{
         //     let testCase = this._testObjectModelFactory.createTestCase();
         //     let testCaseDescription = testCaseRoot.children().first();
         //     if(testCaseDescription){
