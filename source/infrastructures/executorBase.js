@@ -10,23 +10,26 @@ let agentCommands = CONST.commands.agent;
 class ExecutorBase extends ObjectBase{
     constructor(communicator){
         super();
-        this.communicator = communicator;
+        this._communicator = communicator;
     }
 
     get type(){
         return ExecutorBase.name;
     }
 
-    _init(){
-
+    init(){
     }
 
-    _execute(){
-
+    execute(){
     }
 
-    _stop(){
+    stop(){
+    }
 
+    pause(){
+    }
+
+    reset(){
     }
 
     get communicator(){

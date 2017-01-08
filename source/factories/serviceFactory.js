@@ -1,12 +1,12 @@
 /**
  * Created by Shang, Erxin (Edwin) on 10/6/2016.
  */
-let {FactoryBase}        = require("../infrastructures/factoryBase");
-let {container}          = require("../libs/container");
-let {MessageServiceBase} = require("../infrastructures/services/messageServiceBase");
+let {FactoryBase}            = require("../infrastructures/factoryBase");
+let {container}              = require("../libs/container");
+let {MessageServiceBase}     = require("../infrastructures/services/messageServiceBase");
 let {PersistenceServiceBase} = require("../infrastructures/services/persistenceServiceBase");
-let {TestObjectService}  = require("../services/testObjectService");
-let {ConfigService}      = require("../services/configService");
+let {ActionTargetService}    = require("../services/ActionTargetService");
+let {ConfigService}          = require("../services/configService");
 
 let _serviceFactory;
 
@@ -15,7 +15,7 @@ class ServiceFactory extends FactoryBase {
         super();
     }
 
-    get type(){
+    get type() {
         return ServiceFactory.name;
     }
 
@@ -35,7 +35,7 @@ class ServiceFactory extends FactoryBase {
     }
 
     getTestObjectService() {
-        return container.resolve(TestObjectService);
+        return container.resolve(ActionTargetService);
     }
 
     getConfigService() {

@@ -1,7 +1,8 @@
 /**
  * Created by Shang, Erxin (Edwin) on 1/6/2017.
  */
-let {FactoryBase}                = require("../infrastructures/factoryBase");
+let {FactoryBase}  = require("../infrastructures/factoryBase")
+
 let _actionModelFactory;
 
 class ActionModelFactory extends FactoryBase{

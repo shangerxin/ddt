@@ -3,7 +3,7 @@
  */
 let {ActionTargetServiceBase} = require("../infrastructures/services/actionTargetServiceBase");
 
-class TestObjectService extends ActionTargetServiceBase{
+class ActionTargetService extends ActionTargetServiceBase{
     constructor(){
         super();
         this._repositories = new Map();
@@ -40,10 +40,6 @@ class TestObjectService extends ActionTargetServiceBase{
             this._repositories.set(domain, repo);
         }
     }
-
-    toJSON(){
-
-    }
 }
 
-exports.TestObjectService = TestObjectService;
+exports.ActionTargetService = ActionTargetService;

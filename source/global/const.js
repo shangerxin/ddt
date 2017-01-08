@@ -26,6 +26,13 @@ var CONST = {
             stopped: "stopped",
             warning: "warning",
             error  : "error",
+        },
+        executor:{
+            idle: "idle",
+            ready: "ready",
+            executing: "executing",
+            stopped:"stopped",
+
         }
     },
     topics   : {

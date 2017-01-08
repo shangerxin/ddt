@@ -8,6 +8,8 @@ let {DragableActionTargetModel}  = require(".../models/actionTargetModels/dragab
 let {InputActionTargetModel}     = require("../models/actionTargetModels/inputActionTargetModel");
 let {UploadActionTargetModel}    = require("../models/actionTargetModels/uploadActionTargetModel");
 
+let _actionTargetModelFactory;
+
 class ActionTargetModelFactory extends FactoryBase {
 	constructor() {
 		super();
@@ -35,6 +37,13 @@ class ActionTargetModelFactory extends FactoryBase {
 
 	createUploadActionTargetModel(){
 		return new UploadActionTargetModel();
+	}
+
+	static get instance(){
+		if(_actionTargetModelFactory){
+			_actionTargetModelFactory = new ActionTargetModelFactory();
+		}
+		return _actionTargetModelFactory;
 	}
 }
 

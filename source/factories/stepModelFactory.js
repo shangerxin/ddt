@@ -16,6 +16,8 @@ let {NavigateStepModel}          = require("../models/stepModels/navigateStepMod
 let {WaitForTestObjectStepModel} = require("../models/stepModels/waitForTestObjectStepModel");
 let {WaitStepModel}              = require("../models/stepModels/waitStepModel");
 
+let _stepModelFactory;
+
 class StepModelFactory extends FactoryBase {
     constructor() {
         super();
@@ -25,33 +27,64 @@ class StepModelFactory extends FactoryBase {
         return StepModelFactory.name;
     }
 
-    createActiveTabStep() {
+    static get instance(){
+      if(!_stepModelFactory){
+        _stepModelFactory = new _stepModelFactory;
+      }
+      return _stepModelFactory;
     }
 
-    createBreakStep() {}
+    createActiveTabStep() {
+        return new ActiveTabStepModel();
+    }
 
-    createBrowserActionStep() {}
+    createBreakStep() {
+        return new BreakStepModel();
+    }
 
-    createCatchStep() {}
+    createBrowserActionStep() {
+        return new BrowserActionStepModel();
+    }
 
-    createElementActionStep() {}
+    createCatchStep() {
+        return new CatchStepModel();
+    }
 
-    createEvalStep() {}
+    createElementActionStep() {
+        return new ElementActionStepModel();
+    }
 
-    createExitStep() {}
+    createEvalStep() {
+        return new EvalStepModel();
+    }
 
-    createExpectStep() {}
+    createExitStep() {
+        return new ExitStepModel();
+    }
 
-    createForStep() {}
+    createExpectStep() {
+        return new ExpectStepModel();
+    }
 
-    createIfStep() {}
+    createForStep() {
+        return new ForStepModel();
+    }
+
+    createIfStep() {
+        return new IfStepModel();
+    }
 
     createNavigateStep() {
+        return new NavigateStepModel();
     }
 
-    createWaitForTestObjectStep() {}
+    createWaitForTestObjectStep() {
+        return new WaitForTestObjectStepModel();
+    }
 
-    createWaitStep() {}
+    createWaitStep() {
+        return WaitStepModel();
+    }
 }
 
 exports.StepModelFactory = StepModelFactory;

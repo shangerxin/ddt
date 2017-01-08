@@ -8,7 +8,7 @@ let SeleniumAgent         = require("./modules/agents/seleniumAgent").SeleniumAg
 let CONST                 = require("./global/const").CONST;
 let HtmlToTestSuiteParser = require("./modules/parsers/html2TestSuitesParser").Html2TestSuitesParser;
 let Markdown2HtmlParser   = require("./modules/parsers/markdown2HtmlParser").Markdown2HtmlParser;
-let TestObjectService     = require("./services/testObjectService").TestObjectService;
+let ActionTargetService   = require("./services/ActionTargetService").ActionTargetService;
 let fs                    = require("fs");
 let Natural2StepParser    = require("./modules/parsers/natural2StepParser").Natural2StepParser;
 let TestModelFactory      = require("./factories/testModelFactory").TestModelFactory;
@@ -18,7 +18,7 @@ function main() {
     let agent             = new SeleniumAgent();
     let communicator      = new DirectCommunicator();
     let commands          = CONST.commands.engine;
-    let testObjectService = new TestObjectService();
+    let testObjectService = new ActionTargetService();
 
     let testObjects = testObjectService.getActionTargets("google.com");
     let testSuite;
