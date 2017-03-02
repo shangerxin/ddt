@@ -1,33 +1,33 @@
 /**
  * Created by Shang, Erxin (Edwin) on 9/7/2016.
  */
-let {ObjectBase} = require("./objectBase");
+let {ObjectBase}          = require("./objectBase");
 let {NotImplementedError} = require("./errors");
 
-class ParserBase extends ObjectBase{
-    constructor(){
+class ParserBase extends ObjectBase {
+    constructor() {
         super();
-        this._result = null
+        this._result  = null
         this._options = null;
     }
 
-    get type(){
+    get type() {
         return ParserBase.name;
     }
 
-    get result(){
+    get result() {
         return this._result;
     }
 
-    parse(){
+    parse() {
         throw new NotImplementedError();
     }
 
-    get options(){
+    get options() {
         return this._options;
     }
 
-    set options(options){
+    set options(options) {
         this._options = options;
     }
 }

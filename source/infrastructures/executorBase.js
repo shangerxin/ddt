@@ -3,11 +3,11 @@
  */
 
 let {ObjectBase} = require("../infrastructures/objectBase");
-let {CONST} = require("../global/const");
+let {CONST}      = require("../global/const");
 
 let agentCommands = CONST.commands.agent;
 
-class ExecutorBase extends ObjectBase{
+class ExecutorBase extends ObjectBase {
     constructor(communicator){
         super();
         this._communicator = communicator;
@@ -38,8 +38,8 @@ class ExecutorBase extends ObjectBase{
 
     set communicator(communicator){
         this._communicator = communicator;
-        communicator.subscribe(topic, function(cmdTopic, ...args){
-            switch(cmdTopic){
+        communicator.subscribe(topic, function (cmdTopic, ...args){
+            switch (cmdTopic) {
 
             }
         }, this);
