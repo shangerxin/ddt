@@ -16,18 +16,7 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "browserify": "^13.1.0",
-    "casper": "^0.1.1",
     "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-cached": "^1.1.0",
-    "gulp-changed": "^3.2.0",
-    "gulp-mocha": "^7.0.2",
-    "gulp-newer": "^1.3.0",
-    "gulp-remember": "^1.0.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-streamify": "^1.0.2",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^1.0.0",
     "loglevel": "^1.4.1",
     "mocha": "^10.0.0",
     "promises-aplus-tests": "^1.2.0",
@@ -36,14 +25,12 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
     "jszip": "^3.1.2",
-    "lodash": "^4.15.0",
-    "log4js": "^6.6.1",
     "natural": "^0.4.0",
     "requirejs": "^2.3.2",
     "selenium-webdriver": "^3.0.0-beta-3",
     "showdown": "^1.4.3",
-    "text": "github:requirejs/text"
+    "text": "github:requirejs/text",
+    "underscore": "^1.13.4"
   }
 }
